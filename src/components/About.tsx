@@ -1,11 +1,32 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useState, useEffect } from 'react';
 
 export default function About() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    "https://i.postimg.cc/8cJRgyRB/Bhaktapur-2.jpg",
+    "https://i.postimg.cc/t4Hh8NYW/Everest.jpg",
+    "https://i.postimg.cc/D0XXMShx/Nepali-Kitchen.jpg",
+    "https://i.postimg.cc/xCqHLs4D/Mountain-Yak.jpg",
+    "https://i.postimg.cc/zfzTGDwf/Mountain-Art-Village.jpg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Animation variants
   const container = {
@@ -31,14 +52,28 @@ export default function About() {
     }
   };
 
-  const mediaItem = {
-    hidden: { x: 100, opacity: 0 },
-    visible: {
-      x: 0,
+  const imageVariants = {
+    enter: {
+      opacity: 0,
+      scale: 1.1,
+      x: 20
+    },
+    center: {
       opacity: 1,
+      scale: 1,
+      x: 0,
       transition: {
-        duration: 1,
-        ease: "easeOut"
+        duration: 0.8,
+        ease: [0.4, 0.0, 0.2, 1]
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      x: -20,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0.0, 0.2, 1]
       }
     }
   };
@@ -114,48 +149,33 @@ export default function About() {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             className="lg:w-1/2 relative rounded-2xl overflow-hidden"
-            variants={mediaItem}
           >
-            {/* Video/GIF container */}
-            <div className="relative aspect-video rounded-xl shadow-2xl overflow-hidden border-4 border-white">
-              {/* Replace with your actual video or GIF */}
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full h-full object-cover"
-              >
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-artist-painting-on-canvas-1172-large.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Fallback for browsers that don't support video */}
-              <div className="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                <img 
-                  src="https://i.giphy.com/media/3o7TKsrfld1j3lqQ7S/giphy.webp" 
-                  alt="Art process animation"
+            <div className="relative aspect-video rounded-xl shadow-2xl overflow-hidden border-4 border-white bg-black">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImageIndex}
+                  src={images[currentImageIndex]}
+                  alt={`Studio work ${currentImageIndex + 1}`}
                   className="w-full h-full object-cover"
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  variants={imageVariants}
                 />
-              </div>
+              </AnimatePresence>
               
-              {/* Play button overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.8, 1, 0.8]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity
-                  }}
-                  className="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center backdrop-blur-sm"
-                >
-                  <svg className="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                  </svg>
-                </motion.div>
+              {/* Image navigation dots */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    className={`w-2 h-2 rounded-full ${
+                      currentImageIndex === index ? 'bg-white' : 'bg-white/50'
+                    }`}
+                    onClick={() => setCurrentImageIndex(index)}
+                    whileHover={{ scale: 1.2 }}
+                  />
+                ))}
               </div>
             </div>
 

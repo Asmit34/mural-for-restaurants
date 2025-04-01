@@ -3,26 +3,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const MuralShowcase = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Set initial value
-    handleResize();
-    
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-    
-    // Clean up
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -89,74 +73,54 @@ const MuralShowcase = () => {
 
   return (
     <section ref={ref} className="relative min-h-[200vh] bg-gradient-to-b from-gray-100 to-gray-200" id="showcase">
-      {/* Initial full-screen section */}
-      <div className="h-screen w-full sticky top-0 overflow-hidden">
+      {/* Initial full-screen section - adjusted for mobile */}
+      <div className="h-[50vh] md:h-screen w-full sticky top-0 overflow-hidden">
         {/* Gradient background layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-purple-900/20 z-0" />
 
-        {/* Background image with parallax effect */}
+        {/* Background image with parallax effect - now properly visible on mobile */}
         <motion.div
           className="absolute inset-0 h-full w-full"
-          style={{
-            scale,
-            y,
-          }}
+          style={{ scale, y }}
         >
-          {isMobile ? (
-            // Mobile version - adjusted to prevent cutting
-            <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
-              <img
-                src="https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg"
-                alt="Featured Mural"
-                className="h-full w-auto max-w-none"
-                style={{
-                  objectFit: 'cover',
-                  minWidth: '50%',
-                  minHeight: '100%'
-                }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-purple-900/30"
-                style={{ opacity: imageOverlay }}
-              />
-            </div>
-          ) : (
-            // Desktop version - original implementation
-            <>
-              <img
-                src="https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg"
-                alt="Featured Mural"
-                className="w-full h-full object-cover"
-                style={{ minHeight: '150%', transformOrigin: 'top center' }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-purple-900/30"
-                style={{ opacity: imageOverlay }}
-              />
-            </>
-          )}
+          <div className="relative w-full h-full">
+            <img
+              src="https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg"
+              alt="Featured Mural"
+              className="absolute inset-0 w-full h-full object-cover md:object-center"
+              style={{
+                objectPosition: 'center center',
+                minHeight: '120%',
+                minWidth: '100%'
+              }}
+            />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-purple-900/30"
+              style={{ opacity: imageOverlay }}
+            />
+          </div>
         </motion.div>
 
-        {/* Title overlay that fades out on scroll */}
+        {/* Title overlay - adjusted for mobile */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           style={{ opacity: titleOpacity }}
         >
-          <div className="text-center text-white bg-black/40 backdrop-blur-sm p-8 rounded-xl border border-white/20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+          <div className="text-center text-white bg-black/40 backdrop-blur-sm p-4 md:p-8 rounded-xl border border-white/20 mx-4">
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4">
               Commercial Mural Excellence
             </h2>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
+            <p className="text-sm md:text-lg lg:text-xl max-w-2xl mx-auto px-2 md:px-4">
               Transforming Hospitality Spaces with Premium Wall Art Solutions
             </p>
           </div>
         </motion.div>
       </div>
 
-      {/* Details section */}
+      {/* Details section - adjusted spacing for mobile */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-4 py-20"
+        className="relative z-10 container mx-auto px-4 py-10 md:py-20"
       >
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden opacity-10">
