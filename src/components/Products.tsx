@@ -277,6 +277,8 @@ const Products = () => {
   const [sortOption, setSortOption] = useState('default');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const [currentCollection, setCurrentCollection] = useState('');
 
   const filteredProducts = useMemo(() => {
     let result = { ...products };
@@ -316,9 +318,15 @@ const Products = () => {
     };
   }, [filteredProducts, sortOption]);
 
-  const handleProductClick = (product) => {
+  const handleProductClick = (product, collection) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
+    setCurrentCollection(collection);
+    
+    // Find the index of the current product in its collection
+    const index = sortedProducts[collection].findIndex(p => p.id === product.id);
+    setCurrentProductIndex(index >= 0 ? index : 0);
+    
     document.body.style.overflow = 'hidden';
   };
 
@@ -335,6 +343,22 @@ const Products = () => {
   const handleCloseImage = () => {
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
+  };
+
+  const navigateProducts = (direction) => {
+    if (!currentCollection || !sortedProducts[currentCollection]) return;
+    
+    const collection = sortedProducts[currentCollection];
+    let newIndex;
+    
+    if (direction === 'prev') {
+      newIndex = (currentProductIndex - 1 + collection.length) % collection.length;
+    } else {
+      newIndex = (currentProductIndex + 1) % collection.length;
+    }
+    
+    setCurrentProductIndex(newIndex);
+    setSelectedProduct(collection[newIndex]);
   };
 
   const showMurals = filter === 'all' || filter === 'murals';
@@ -442,7 +466,7 @@ const Products = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.05 }}
                         whileHover={{ scale: 1.02 }}
-                        onClick={() => handleProductClick(product)}
+                        onClick={() => handleProductClick(product, 'murals')}
                       >
                         <div className="relative h-40 sm:h-48">
                           <img
@@ -493,7 +517,7 @@ const Products = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.05 + 0.1 }}
                         whileHover={{ scale: 1.02 }}
-                        onClick={() => handleProductClick(product)}
+                        onClick={() => handleProductClick(product, 'canvas')}
                       >
                         <div className="relative h-40 sm:h-48">
                           <img
@@ -529,7 +553,7 @@ const Products = () => {
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-[60]" // Increased z-index
+            className="fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-[60]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -563,24 +587,63 @@ const Products = () => {
         )}
       </AnimatePresence>
 
-      {/* Product Modal */}
+      {/* Product Modal with Navigation Arrows */}
       <AnimatePresence>
         {isModalOpen && selectedProduct && (
           <motion.div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50" // Lower z-index
+            className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
           >
             <motion.div
-              className="bg-gradient-to-br from-white to-gray-50 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/30"
+              className="bg-gradient-to-br from-white to-gray-50 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/30 relative"
               initial={{ scale: 0.9, y: 50, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 50, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Navigation Arrows */}
+              {sortedProducts[currentCollection] && sortedProducts[currentCollection].length > 1 && (
+                <>
+                  <motion.button 
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg z-10"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigateProducts('prev');
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </motion.button>
+                  
+                  <motion.button 
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg z-10"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigateProducts('next');
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </motion.button>
+                </>
+              )}
+
               <div className="relative">
                 <motion.img
                   src={selectedProduct.image}

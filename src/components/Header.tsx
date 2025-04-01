@@ -7,30 +7,25 @@ const navItems = [
   { name: 'Contact', href: '#contact' }
 ];
 
-// Text content that changes with video progress
 const textContent = [
   {
     title: "Transform Your Space",
-    description: "Premium murals that bring life to any environment",
-    cta: "View Collection",
+    description: "Premium digital wall painting that bring life to any environment. Our digital wall painting are designed with customizable colors and textures, offering endless possibilities to match your unique style and ambiance. Whether you need a calming atmosphere or a bold statement, our digital wall painting can be tailored to transform your space into something extraordinary.",
     bgGradient: "from-blue-900 to-purple-900"
   },
   {
-    title: "Custom Art Solutions",
-    description: "Tailored designs for your unique space",
-    cta: "See Options",
+    title: "Custom Digital Wall Designs",
+    description: "Tailored murals designed specifically for your space. We offer a wide range of customizable colors, patterns, and textures to fit your vision. No matter your space's size or style, our team will work with you to create the perfect digital wall painting that blends seamlessly with your decor and enhances the ambiance of your environment.",
     bgGradient: "from-purple-900 to-indigo-900"
   },
   {
-    title: "Premium Materials",
-    description: "Museum-grade quality that lasts",
-    cta: "Learn More",
+    title: "Versatile Sizes and Textures",
+    description: "Our digital wall painting are available in any size, from small feature walls to grand installations. We offer customizable texture options that cater to both modern and classic aesthetics. With a range of choices, you can create a mural that fits your exact needs, making every wall a unique and eye-catching centerpiece.",
     bgGradient: "from-indigo-900 to-blue-900"
   },
   {
-    title: "Expert Installation",
-    description: "Flawless results every time",
-    cta: "Get Started",
+    title: "Seamless Installation",
+    description: "Our expert installation team ensures that your digital wall painting is installed perfectly, creating a flawless, professional finish. We handle all aspects of the installation process, ensuring that your mural is applied with precision and care. With our reliable and efficient service, you can trust that your digital wall painting will be installed beautifully every time.",
     bgGradient: "from-blue-900 to-teal-900"
   }
 ];
@@ -40,22 +35,30 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isSeeking, setIsSeeking] = useState(false);
   const videoRef = useRef(null);
+  const videoContainerRef = useRef(null);
   const contentRef = useRef(null);
+  const progressBarRef = useRef(null);
 
-  // Current content based on video progress
   const currentContent = textContent[currentContentIndex];
 
-  // Check for mobile viewport
+  // Format time (seconds) to MM:SS
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  };
+
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
+    const checkIfMobile = () => setIsMobile(window.innerWidth < 768);
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
-    
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
@@ -65,7 +68,12 @@ export default function Header() {
     if (!video) return;
 
     const handleTimeUpdate = () => {
-      // Change content at specific intervals (every 25% of video)
+      // Update current time
+      if (!isSeeking) {
+        setCurrentTime(video.currentTime);
+      }
+
+      // Update content based on video progress
       const progress = video.currentTime / video.duration;
       const segmentCount = textContent.length;
       const newIndex = Math.min(
@@ -78,54 +86,137 @@ export default function Header() {
       }
     };
 
+    const handleLoadedMetadata = () => {
+      setDuration(video.duration);
+    };
+
     const handleCanPlay = () => {
       if (isVideoPlaying) {
-        video.play().catch(e => console.log("Auto-play prevented:", e));
+        video.play().catch(e => console.log("Video auto-play prevented:", e));
       }
     };
 
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('timeupdate', handleTimeUpdate);
     
     return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [isVideoPlaying, currentContentIndex]);
+  }, [isVideoPlaying, currentContentIndex, isSeeking]);
+
+  // Handle fullscreen change events
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
 
   // Handle scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const toggleVideoPlayback = () => {
-    if (videoRef.current) {
+  const toggleVideoPlayback = async () => {
+    if (!videoRef.current) return;
+
+    try {
       if (videoRef.current.paused) {
-        videoRef.current.play();
+        await videoRef.current.play();
         setIsVideoPlaying(true);
       } else {
         videoRef.current.pause();
         setIsVideoPlaying(false);
       }
+    } catch (error) {
+      console.error('Error toggling playback:', error);
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (!videoContainerRef.current) return;
+
+    if (!document.fullscreenElement) {
+      videoContainerRef.current.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen().catch(err => {
+        console.error(`Error attempting to exit fullscreen: ${err.message}`);
+      });
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
     }
   };
 
   // Handle manual content navigation
   const goToContentSegment = (index) => {
-    if (videoRef.current) {
-      const segmentDuration = videoRef.current.duration / textContent.length;
-      videoRef.current.currentTime = index * segmentDuration;
-      setCurrentContentIndex(index);
-    }
+    if (!videoRef.current) return;
+
+    const segmentDuration = videoRef.current.duration / textContent.length;
+    const newTime = index * segmentDuration;
+    
+    videoRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+    setCurrentContentIndex(index);
+  };
+
+  const handleProgressBarMouseDown = () => {
+    setIsSeeking(true);
+  };
+
+  const handleProgressBarMouseUp = (e) => {
+    if (!videoRef.current || !progressBarRef.current) return;
+    
+    const progressBar = progressBarRef.current;
+    const rect = progressBar.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    const newTime = percent * duration;
+    
+    videoRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+    setIsSeeking(false);
+  };
+
+  const handleProgressBarMouseMove = (e) => {
+    if (!isSeeking) return;
+    
+    const progressBar = progressBarRef.current;
+    if (!progressBar) return;
+    
+    const rect = progressBar.getBoundingClientRect();
+    const percent = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
+    const newTime = percent * duration;
+    
+    setCurrentTime(newTime);
+  };
+
+  const handleProgressBarClick = (e) => {
+    if (!videoRef.current || !progressBarRef.current) return;
+    
+    const progressBar = progressBarRef.current;
+    const rect = progressBar.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    const newTime = percent * duration;
+    
+    videoRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
   };
 
   return (
@@ -207,26 +298,56 @@ export default function Header() {
                 href="#products"
                 className="inline-block px-8 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold hover:bg-blue-700 hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
               >
-                {currentContent.cta}
+                Explore Our Collection
               </a>
             </div>
           </div>
 
           {/* Right Side - Video */}
-          <div className="w-full md:w-1/2 h-[400px] md:h-[600px] relative">
+          <div 
+            ref={videoContainerRef}
+            className={`w-full md:w-1/2 h-[400px] md:h-[600px] relative ${isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen bg-black' : ''}`}
+          >
             <video
               ref={videoRef}
               autoPlay
               loop
-              muted
+              muted={isMuted}
               playsInline
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${isFullscreen ? 'object-contain' : 'object-cover'}`}
             >
-              <source src="/videos/output.mp4" type="video/mp4" />
+              <source src="/videos/video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
-            {/* Video Controls */}
+            {/* Progress bar container */}
+            <div 
+              className="absolute bottom-16 left-0 right-0 px-4 z-10"
+              onMouseDown={handleProgressBarMouseDown}
+              onMouseUp={handleProgressBarMouseUp}
+              onMouseMove={handleProgressBarMouseMove}
+              onMouseLeave={() => setIsSeeking(false)}
+            >
+              <div 
+                ref={progressBarRef}
+                className="w-full h-2 bg-gray-600/50 rounded-full cursor-pointer"
+                onClick={handleProgressBarClick}
+              >
+                <div 
+                  className="h-full bg-blue-500 rounded-full relative"
+                  style={{ width: `${(currentTime / duration) * 100}%` }}
+                >
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-3 h-3 bg-white rounded-full"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Time display */}
+            <div className="absolute bottom-20 left-4 text-white text-sm z-10">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </div>
+            
+            {/* Controls container */}
             <div className="absolute bottom-4 right-4 z-10 flex gap-2">
               <button
                 onClick={toggleVideoPlayback}
@@ -245,7 +366,40 @@ export default function Header() {
                 )}
               </button>
               
-              {/* Content Indicator Dots */}
+              <button
+                onClick={toggleMute}
+                className="p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-all"
+                aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+              >
+                {isMuted ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M12 6a7.975 7.975 0 015.657 2.343m0 0a7.975 7.975 0 010 11.314m-11.314 0a7.975 7.975 0 010-11.314m0 0a7.975 7.975 0 015.657-2.343" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                  </svg>
+                )}
+              </button>
+              
+              <button
+                onClick={toggleFullscreen}
+                className="p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-all"
+                aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+              >
+                {isFullscreen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 20h12M6 4h12m-6 6v8m0-8V4" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                )}
+              </button>
+              
               <div className="flex items-center gap-1 bg-black/50 rounded-full px-2">
                 {textContent.map((_, index) => (
                   <button
@@ -258,7 +412,9 @@ export default function Header() {
               </div>
             </div>
             
-            <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent" />
+            {!isFullscreen && (
+              <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent" />
+            )}
           </div>
         </div>
       </div>

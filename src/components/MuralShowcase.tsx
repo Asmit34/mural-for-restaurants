@@ -103,16 +103,16 @@ const MuralShowcase = () => {
           }}
         >
           {isMobile ? (
-            // Mobile version with rotated and stretched image
-            <div className="absolute inset-0 overflow-hidden">
+            // Mobile version - adjusted to prevent cutting
+            <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
               <img
                 src="https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg"
                 alt="Featured Mural"
-                className="absolute w-[200%] h-full object-cover left-1/2 -translate-x-1/2"
+                className="h-full w-auto max-w-none"
                 style={{
-                  objectPosition: 'center',
-                  transform: 'rotate(90deg) translateY(-50%)',
-                  transformOrigin: 'center',
+                  objectFit: 'cover',
+                  minWidth: '50%',
+                  minHeight: '100%'
                 }}
               />
               <motion.div

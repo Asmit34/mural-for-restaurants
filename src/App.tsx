@@ -46,7 +46,7 @@ function App() {
 
                     <div className="flex space-x-6">
                       <motion.a
-                        href="https://www.facebook.com/BestArtCanvasNepal"
+                        href="https://www.facebook.com/BestArtCanvasNepal/photos"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2 }}
@@ -64,7 +64,7 @@ function App() {
                         <PinterestIcon />
                       </motion.a>
                       <motion.a
-                        href="https://bat.com.np/"
+                        href="https://bat.com.np/all-murals/"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2 }}
