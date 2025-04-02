@@ -24,7 +24,6 @@ export default function About() {
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -109,7 +108,7 @@ export default function About() {
 
             <motion.div variants={item} className="space-y-6">
               {[
-                "At Best Art Technology, we transform spaces into immersive experiences. Our team blends traditional artistry with digital innovation to create breathtaking murals and wall designs.",
+                "At Best Art Technology, we transform spaces into immersive experiences. Our team blends traditional artistry with digital innovation to create breathtaking Digital Wal Painting.",
                 "Each project begins with your vision. We collaborate closely to understand your space, brand, and aesthetic goals, then bring it to life with precision and creativity.",
                 "With over a decade in the industry, we've perfected our craft across hundreds of installations nationwide, earning recognition for quality and innovation."
               ].map((text, i) => (

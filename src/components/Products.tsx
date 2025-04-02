@@ -17,16 +17,11 @@ const products = {
       image: 'https://i.postimg.cc/nLTg4vjd/Bhaktapur.jpg',
       description: 'Description: Stylized sketch of Bhaktapur Durbar Square, featuring detailed architectural outlines and a soft, warm-toned (pinkish) palette. Captures the historical charm and intricate craftsmanship of the square. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a unique, artistic, and culturally rich ambiance.',
       marketingAngle: 'Infuse your space with artistic elegance and historical charm. This sketch of Bhaktapur Durbar Square offers a unique visual experience, customizable to perfectly complement your decor.',
-      details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor',
-      thumbnails: [
-        'https://i.postimg.cc/3r13xvxx/Bhaktapur-Darbar-Square.jpg',
-        'https://i.postimg.cc/NfHXt3y7/Bhaktapur-Darbar-Square.jpg',
-        'https://i.postimg.cc/0yGJM70z/Bhaktapur-2.jpg'
-      ],
+      details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
       id: 3,
-      title: 'Gorkha Darbar Sketch (Monochrome',
+      title: 'Gorkha Darbar Sketch (Monochrome)',
       image: 'https://i.postimg.cc/DmVMv6Hz/Gorkha-Darbar.jpg',
       description: 'Description: Detailed monochrome sketch of Gorkha Darbar, featuring the palace architecture against a backdrop of Himalayan mountains. Captures the historical significance and natural beauty of the location. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and culturally rich ambiance with a modern touch.',
       marketingAngle: 'Elevate your space with a blend of history and contemporary artistry. This Gorkha Darbar mural offers a sophisticated and culturally immersive experience, tailored to your design vision.',
@@ -34,7 +29,7 @@ const products = {
     },
     {
       id: 4,
-      title: ' Bhaktapur Durbar Square Relief',
+      title: 'Bhaktapur Durbar Square Relief',
       image: 'https://i.postimg.cc/q7pW6mRh/Bhaktapur-Sketch-Art.jpg',
       description: 'Textured relief rendering of Bhaktapur Durbar Square, featuring intricate architectural details highlighted in gold against a rich brown background. Creates a sophisticated, sculptural effect with a sense of historical grandeur. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for luxury hotels, restaurants, or cultural spaces seeking a distinguished aesthetic.',
       marketingAngle: 'Add a touch of timeless elegance and cultural depth. This relief mural captures the essence of Bhaktapur, offering a unique and customizable statement piece for your space.',
@@ -44,7 +39,7 @@ const products = {
       id: 5,
       title: 'Kathmandu Skyline Sketch (Sepia Tones)',
       image: 'https://i.postimg.cc/7Y0xgWxm/Kathmandu.jpg',
-      description: ' Detailed sketch of the Kathmandu skyline, featuring iconic temples and stupas against a backdrop of the Himalayan mountains. Rendered in sepia tones, creating a nostalgic and culturally rich atmosphere. Captures the unique architecture and landscape of the city. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and artistic ambiance.',
+      description: 'Detailed sketch of the Kathmandu skyline, featuring iconic temples and stupas against a backdrop of the Himalayan mountains. Rendered in sepia tones, creating a nostalgic and culturally rich atmosphere. Captures the unique architecture and landscape of the city. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and artistic ambiance.',
       marketingAngle: 'Bring the timeless charm of Kathmandu to your space. This sepia-toned skyline sketch offers a unique blend of artistry and cultural immersion, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
@@ -61,7 +56,7 @@ const products = {
       title: 'Mount Everest Sketch (Textured Vintage)',
       image: 'https://i.postimg.cc/Z5L4QvvN/Mount-Everest.jpg',
       description: 'Textured vintage sketch of the Mount Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Uses a muted, aged palette with hints of green to create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
-      marketingAngle: '"Capture the majesty of Everest with a touch of timeless artistry. This textured vintage sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, tailored to your design vision.',
+      marketingAngle: 'Capture the majesty of Everest with a touch of timeless artistry. This textured vintage sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
@@ -76,7 +71,7 @@ const products = {
       id: 9,
       title: 'Fishtail Mountain Yak Sketch (Warm Hues)',
       image: 'https://i.postimg.cc/DZ4V7S0B/Village-Art-3.jpg',
-      description: 'Detailed sketch of a dramatic Himalayan mountain range, featuring rugged peaks and misty valleys. Warm, muted tones (pinkish-brown) create a serene and majestic atmosphere. Captures the grandeur of the landscape and the sense of adventure. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting.. Ideal for hotels, lounges, or travel agencies seeking a captivating and nature-inspired design.',
+      description: 'Detailed sketch of a dramatic Himalayan mountain range, featuring rugged peaks and misty valleys. Warm, muted tones (pinkish-brown) create a serene and majestic atmosphere. Captures the grandeur of the landscape and the sense of adventure. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, lounges, or travel agencies seeking a captivating and nature-inspired design.',
       marketingAngle: 'Bring the majestic beauty of the Himalayas to your space. This warm-toned mountain sketch offers a dramatic and serene aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
@@ -92,7 +87,7 @@ const products = {
       id: 11,
       title: 'Himalayan Village Path Sketch',
       image: 'https://i.postimg.cc/zfBZPtrm/Village-Art.jpg',
-      description: ' Detailed sketch of a Himalayan village path leading towards a mountain peak, featuring traditional houses and a figure walking along the path. Monochromatic with fine lines, creating a serene and rustic atmosphere. Captures the essence of rural life and the natural landscape. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a tranquil and authentic ambiance.',
+      description: 'Detailed sketch of a Himalayan village path leading towards a mountain peak, featuring traditional houses and a figure walking along the path. Monochromatic with fine lines, creating a serene and rustic atmosphere. Captures the essence of rural life and the natural landscape. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a tranquil and authentic ambiance.',
       marketingAngle: 'Bring the peaceful charm of a Himalayan village to your space. This detailed sketch offers a glimpse into rural life and natural beauty, creating a serene and authentic atmosphere, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
@@ -122,7 +117,7 @@ const products = {
     },
     {
       id: 15,
-      title: ' Himalayan Village Panorama',
+      title: 'Himalayan Village Panorama',
       image: 'https://i.postimg.cc/Rhwjn2ct/Yak-Village.jpg',
       description: 'Panoramic relief-style mural featuring a sprawling Himalayan village against a backdrop of majestic mountains. Warm, muted tones create a sense of peace and rustic charm. Detailed textures and a wide perspective bring the scene to life. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or lounges seeking a serene, nature-inspired ambiance.',
       marketingAngle: 'Create a tranquil escape with this panoramic Himalayan vista. This detailed relief mural brings the beauty of the mountains to your space, customized to fit your unique design vision.',
@@ -130,7 +125,7 @@ const products = {
     },
     {
       id: 16,
-      title: ' Everest Explorers Sketch (Red Accent)',
+      title: 'Everest Explorers Sketch (Red Accent)',
       image: 'https://i.postimg.cc/HkmT39nH/Mount-Everest-Climbing.jpg',
       description: 'Detailed sketch of Mount Everest featuring explorers amidst the dramatic landscape, rendered with a striking red accent against a muted background. Captures the grandeur of the mountain and the spirit of adventure. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, restaurants, or lounges seeking a sophisticated, nature-inspired, and artistic design.',
       marketingAngle: 'Embark on a visual journey to the summit. This Everest explorers sketch, with its bold red accent, brings the thrill of adventure to your space, tailored to your design vision.',
@@ -202,9 +197,9 @@ const products = {
     },
     {
       id: 25,
-      title: ' Mountain Deer Relief (Monochrome)',
+      title: 'Mountain Deer Relief (Monochrome)',
       image: 'https://i.postimg.cc/4dYGn8Lv/Mountain-with-deer.jpg',
-      description: ' Monochromatic relief-style mural depicting a serene mountain landscape with deer amidst stylized trees and rocky terrain. Creates a tranquil and sophisticated atmosphere with a touch of nature-inspired artistry. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, spas, or luxury residences seeking a calming and visually captivating design.',
+      description: 'Monochromatic relief-style mural depicting a serene mountain landscape with deer amidst stylized trees and rocky terrain. Creates a tranquil and sophisticated atmosphere with a touch of nature-inspired artistry. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, spas, or luxury residences seeking a calming and visually captivating design.',
       marketingAngle: 'Bring the serene beauty of the mountains indoors. This monochromatic deer relief mural offers a unique blend of nature-inspired artistry and sophisticated design, tailored to your vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
@@ -214,31 +209,24 @@ const products = {
 const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [filter, setFilter] = useState('all');
   const [sortOption, setSortOption] = useState('default');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
-  const [currentCollection, setCurrentCollection] = useState('');
+  const [currentCollection, setCurrentCollection] = useState('murals');
 
   const filteredProducts = useMemo(() => {
-    let result = { ...products };
-
-    if (filter !== 'all') {
-      result = { [filter]: products[filter] };
-    }
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       return {
-        murals: result.murals?.filter(product => 
+        murals: products.murals.filter(product => (
           product.title.toLowerCase().includes(query) ||
           product.description.toLowerCase().includes(query)
-        ) || []
+        ))
       };
     }
-    
-    return result;
-  }, [filter, products, searchQuery]);
+    return products;
+  }, [products, searchQuery]);
 
   const sortedProducts = useMemo(() => {
     const sortFunctions = {
@@ -250,7 +238,7 @@ const Products = () => {
     const sorter = sortFunctions[sortOption] || sortFunctions['default'];
     
     return {
-      murals: [...filteredProducts.murals || []].sort(sorter)
+      murals: [...filteredProducts.murals].sort(sorter)
     };
   }, [filteredProducts, sortOption]);
 
@@ -259,10 +247,8 @@ const Products = () => {
     setIsModalOpen(true);
     setCurrentCollection(collection);
     
-    // Find the index of the current product in its collection
     const index = sortedProducts[collection].findIndex(p => p.id === product.id);
     setCurrentProductIndex(index >= 0 ? index : 0);
-    
     document.body.style.overflow = 'hidden';
   };
 
@@ -296,8 +282,6 @@ const Products = () => {
     setCurrentProductIndex(newIndex);
     setSelectedProduct(collection[newIndex]);
   };
-
-  const showMurals = filter === 'all' || filter === 'murals';
 
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50" id="products">
@@ -354,18 +338,6 @@ const Products = () => {
           />
           
           <div className="flex flex-wrap justify-center gap-4 mt-4">
-            {['all', 'murals'].map((filterType) => (
-              <motion.button
-                key={filterType}
-                className={`px-4 py-2 rounded-full ${filter === filterType ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md' : 'bg-white text-gray-700 shadow-sm'}`}
-                onClick={() => setFilter(filterType)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {filterType === 'all' ? 'All Products' : 'Murals Only'}
-              </motion.button>
-            ))}
-            
             <motion.select 
               className="px-4 py-2 rounded-full bg-white text-gray-700 shadow-sm"
               value={sortOption}
@@ -379,57 +351,56 @@ const Products = () => {
           </div>
         </motion.div>
         
-        <div className="grid grid-cols-1 gap-3 h-[1200px] md:h-[700px]">
-          {showMurals && (
-            <motion.div
-              className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <h3 className="text-2xl font-semibold p-6 text-gray-800 bg-gradient-to-r from-blue-50 to-purple-50 sticky top-0 z-10 border-b border-white/20">
-                Digital Wall Painting <span className="ml-2 text-sm text-gray-500"></span>
-              </h3>
-              <div className="overflow-y-auto h-[1200px] md:h-[600px] p-4">
-                <div className="grid grid-cols-1 sm:grid-cols-1 gap-1">
-                  {sortedProducts.murals && sortedProducts.murals.length > 0 ? (
-                    sortedProducts.murals.map((product, index) => (
-                      <motion.div
-                        key={`mural-${product.id}`}
-                        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-blue-200"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.05 }}
-                        whileHover={{ scale: 1.02 }}
-                        onClick={() => handleProductClick(product, 'murals')}
-                      >
-                        <div className="relative h-40 sm:h-48">
-                          <img
-                            src={product.image}
-                            alt={product.title}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
-                            <h4 className="text-white text-lg font-semibold drop-shadow-md">{product.title}</h4>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))
-                  ) : (
+        <div className="flex justify-center">
+          <motion.div
+            className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20 w-full max-w-4xl"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-semibold p-6 text-gray-800 bg-gradient-to-r from-blue-50 to-purple-50 sticky top-0 z-10 border-b border-white/20 text-center">
+              Digital Wall Painting
+            </h3>
+            <div className="overflow-y-auto" style={{ height: '700px' }}>
+              <div className="grid grid-cols-2 gap-4 p-6">
+                {sortedProducts.murals && sortedProducts.murals.length > 0 ? (
+                  sortedProducts.murals.map((product, index) => (
                     <motion.div
-                      className="text-center text-gray-500 py-8"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.4 }}
+                      key={`mural-${product.id}`}
+                      className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-blue-200"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                      whileHover={{ scale: 1.02 }}
+                      onClick={() => handleProductClick(product, 'murals')}
+                      style={{ height: '200px' }} // Fixed height for each item
                     >
-                      {searchQuery ? 'No murals match your search' : 'No murals available'}
+                      <div className="relative h-full">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                          <h4 className="text-white text-lg font-semibold drop-shadow-md">{product.title}</h4>
+                        </div>
+                      </div>
                     </motion.div>
-                  )}
-                </div>
+                  ))
+                ) : (
+                  <motion.div
+                    className="text-center text-gray-500 py-8 col-span-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    {searchQuery ? 'No murals match your search' : 'No murals available'}
+                  </motion.div>
+                )}
               </div>
-            </motion.div>
-          )}
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -598,24 +569,6 @@ const Products = () => {
                     </motion.div>
                   )}
                 </motion.div>
-                
-                {selectedProduct.thumbnails && (
-                  <div className="px-8 pb-8">
-                    <h4 className="text-lg font-semibold mb-4 text-gray-800">Additional Views:</h4>
-                    <div className="grid grid-cols-3 gap-4">
-                      {selectedProduct.thumbnails.map((thumbnail, index) => (
-                        <motion.img
-                          key={index}
-                          src={thumbnail}
-                          alt={`Thumbnail ${index + 1}`}
-                          className="w-full h-32 object-cover rounded-lg cursor-pointer hover:shadow-md transition-all"
-                          whileHover={{ scale: 1.05 }}
-                          onClick={() => handleImageClick(thumbnail)}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             </motion.div>
           </motion.div>
