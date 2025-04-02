@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,6 +8,7 @@ const products = {
       id: 1,
       title: 'Boudhanath Stupa Relief',
       image: 'https://i.postimg.cc/gJT75mK8/Bouddhanath.jpg',
+      price: '$249.99',
       description: 'Description: Stylized relief of Boudhanath Stupa in soft rose-pink with gold line accents. Creates a tactile, sculptural effect and serene, cultural atmosphere. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for luxury hotels, spas, or restaurants seeking a sophisticated, tranquil ambiance.',
       marketingAngle: "Add spiritual elegance and textural artistry. This unique mural brings the serenity of Boudhanath Stupa to your space, tailored to your decor with customizable options.",
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -15,6 +17,7 @@ const products = {
       id: 2,
       title: 'Bhaktapur Durbar Square Sketch',
       image: 'https://i.postimg.cc/nLTg4vjd/Bhaktapur.jpg',
+      price: '$249.99',
       description: 'Description: Stylized sketch of Bhaktapur Durbar Square, featuring detailed architectural outlines and a soft, warm-toned (pinkish) palette. Captures the historical charm and intricate craftsmanship of the square. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a unique, artistic, and culturally rich ambiance.',
       marketingAngle: 'Infuse your space with artistic elegance and historical charm. This sketch of Bhaktapur Durbar Square offers a unique visual experience, customizable to perfectly complement your decor.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -23,6 +26,7 @@ const products = {
       id: 3,
       title: 'Gorkha Darbar Sketch (Monochrome)',
       image: 'https://i.postimg.cc/DmVMv6Hz/Gorkha-Darbar.jpg',
+      price: '$249.99',
       description: 'Description: Detailed monochrome sketch of Gorkha Darbar, featuring the palace architecture against a backdrop of Himalayan mountains. Captures the historical significance and natural beauty of the location. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and culturally rich ambiance with a modern touch.',
       marketingAngle: 'Elevate your space with a blend of history and contemporary artistry. This Gorkha Darbar mural offers a sophisticated and culturally immersive experience, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -31,6 +35,7 @@ const products = {
       id: 4,
       title: 'Bhaktapur Durbar Square Relief',
       image: 'https://i.postimg.cc/q7pW6mRh/Bhaktapur-Sketch-Art.jpg',
+      price: '$249.99',
       description: 'Textured relief rendering of Bhaktapur Durbar Square, featuring intricate architectural details highlighted in gold against a rich brown background. Creates a sophisticated, sculptural effect with a sense of historical grandeur. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for luxury hotels, restaurants, or cultural spaces seeking a distinguished aesthetic.',
       marketingAngle: 'Add a touch of timeless elegance and cultural depth. This relief mural captures the essence of Bhaktapur, offering a unique and customizable statement piece for your space.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -39,6 +44,7 @@ const products = {
       id: 5,
       title: 'Kathmandu Skyline Sketch (Sepia Tones)',
       image: 'https://i.postimg.cc/7Y0xgWxm/Kathmandu.jpg',
+      price: '$249.99',
       description: 'Detailed sketch of the Kathmandu skyline, featuring iconic temples and stupas against a backdrop of the Himalayan mountains. Rendered in sepia tones, creating a nostalgic and culturally rich atmosphere. Captures the unique architecture and landscape of the city. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and artistic ambiance.',
       marketingAngle: 'Bring the timeless charm of Kathmandu to your space. This sepia-toned skyline sketch offers a unique blend of artistry and cultural immersion, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -47,6 +53,7 @@ const products = {
       id: 6,
       title: 'Lumbini Sketch (Textured Vintage)',
       image: 'https://i.postimg.cc/nVsVLLN8/Lumbini.jpg',
+      price: '$249.99',
       description: 'Textured vintage sketch of Lumbini, the birthplace of Buddha, featuring the Mayadevi Temple and surrounding gardens. Uses a muted, aged palette to create a serene and historically rich atmosphere. Captures the architectural details and spiritual significance of the site. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, cultural centers, or meditation spaces seeking a tranquil and evocative ambiance.',
       marketingAngle: 'Infuse your space with peace and historical significance. This Lumbini sketch, with its textured vintage aesthetic, offers a serene and culturally immersive experience, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -55,6 +62,7 @@ const products = {
       id: 7,
       title: 'Mount Everest Sketch (Textured Vintage)',
       image: 'https://i.postimg.cc/Z5L4QvvN/Mount-Everest.jpg',
+      price: '$249.99',
       description: 'Textured vintage sketch of the Mount Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Uses a muted, aged palette with hints of green to create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
       marketingAngle: 'Capture the majesty of Everest with a touch of timeless artistry. This textured vintage sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -63,6 +71,7 @@ const products = {
       id: 8,
       title: 'Everest Region Sketch (Warm Hues)',
       image: 'https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg',
+      price: '$249.99',
       description: 'Stylized sketch of the Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Warm, muted hues (pinkish tones) create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
       marketingAngle: 'Capture the majesty of Everest. This warm-toned sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -71,6 +80,7 @@ const products = {
       id: 9,
       title: 'Fishtail Mountain Yak Sketch (Warm Hues)',
       image: 'https://i.postimg.cc/DZ4V7S0B/Village-Art-3.jpg',
+      price: '$249.99',
       description: 'Detailed sketch of a dramatic Himalayan mountain range, featuring rugged peaks and misty valleys. Warm, muted tones (pinkish-brown) create a serene and majestic atmosphere. Captures the grandeur of the landscape and the sense of adventure. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, lounges, or travel agencies seeking a captivating and nature-inspired design.',
       marketingAngle: 'Bring the majestic beauty of the Himalayas to your space. This warm-toned mountain sketch offers a dramatic and serene aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -79,6 +89,7 @@ const products = {
       id: 10,
       title: 'Heritage Sketch (Monochrome)',
       image: 'https://i.postimg.cc/13yZDR73/Temple-Art-nepal.jpg',
+      price: '$249.99',
       description: 'Detailed monochrome sketch showcasing iconic heritage sites and landscapes from the different Valley. Features temples, stupas, mountains, and cultural elements, creating a rich tapestry of the regions history and beauty. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and immersive cultural experience.',
       marketingAngle: 'Bring the heart of Valleys heritage to your space. This detailed sketch offers a timeless and culturally rich aesthetic, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -87,6 +98,7 @@ const products = {
       id: 11,
       title: 'Himalayan Village Path Sketch',
       image: 'https://i.postimg.cc/zfBZPtrm/Village-Art.jpg',
+      price: '$249.99',
       description: 'Detailed sketch of a Himalayan village path leading towards a mountain peak, featuring traditional houses and a figure walking along the path. Monochromatic with fine lines, creating a serene and rustic atmosphere. Captures the essence of rural life and the natural landscape. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a tranquil and authentic ambiance.',
       marketingAngle: 'Bring the peaceful charm of a Himalayan village to your space. This detailed sketch offers a glimpse into rural life and natural beauty, creating a serene and authentic atmosphere, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -95,6 +107,7 @@ const products = {
       id: 12,
       title: 'Newari Women at Well Sketch',
       image: 'https://i.postimg.cc/wTXptRVr/Newari-Art-2.jpg',
+      price: '$249.99',
       description: 'Detailed sketch depicting two Newari women drawing water from a traditional well, set against a backdrop of historic architecture. Monochromatic with subtle warm tones, creating a nostalgic and culturally rich atmosphere. Captures a moment of daily life and architectural detail. Customizable colors and dimensions, allowing you to tailor the mural to perfectly match your establishments aesthetic and create a memorable experience for your guests. Ideal for hotels, restaurants, or cultural centers seeking a sophisticated and authentic touch.',
       marketingAngle: 'Add a touch of cultural heritage and timeless charm to your space. This detailed sketch captures a serene moment of Newari life, offering a unique and authentic aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -103,6 +116,7 @@ const products = {
       id: 13,
       title: 'Pokhara Lakeside Sketch (Warm Tones)',
       image: 'https://i.postimg.cc/Hn8N1RSK/Fishtail-with-fewa.jpg',
+      price: '$249.99',
       description: 'Stylized sketch of Pokhara serene lakeside, featuring mountains reflected in the water and traditional boats. Warm, muted tones (pinkish) create a tranquil and inviting atmosphere. Captures the beauty of the landscape and the peaceful essence of Pokhara. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, restaurants, or spas seeking a calming, nature-inspired design.',
       marketingAngle: 'Bring the peaceful beauty of Pokhara to your space. This warm-toned lakeside sketch offers a tranquil escape and a touch of natural elegance, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -111,6 +125,7 @@ const products = {
       id:14,
       title: 'Traditional nepali village',
       image: 'https://i.postimg.cc/qvQHwfWX/Traditional-Village-Art.jpg',
+      price: '$249.99',
       description: 'Monochromatic relief-style sketch of a traditional Nepali village nestled in a dramatic mountain valley. Creates a sense of depth and rustic charm through textured details. Captures the essence of rural life and the natural landscape.Customizable colors and dimensions, providing flexibility to adapt the mural to any space, from expansive lobbies to intimate dining areas, ensuring a perfect fit. Ideal for hotels, restaurants, or lounges seeking a serene and artistic design.',
       marketingAngle: 'Bring the tranquil beauty of a traditional Nepali village to your space. This monochromatic relief mural offers a sophisticated and rustic aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -119,6 +134,7 @@ const products = {
       id: 15,
       title: 'Himalayan Village Panorama',
       image: 'https://i.postimg.cc/Rhwjn2ct/Yak-Village.jpg',
+      price: '$249.99',
       description: 'Panoramic relief-style mural featuring a sprawling Himalayan village against a backdrop of majestic mountains. Warm, muted tones create a sense of peace and rustic charm. Detailed textures and a wide perspective bring the scene to life. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or lounges seeking a serene, nature-inspired ambiance.',
       marketingAngle: 'Create a tranquil escape with this panoramic Himalayan vista. This detailed relief mural brings the beauty of the mountains to your space, customized to fit your unique design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -127,6 +143,7 @@ const products = {
       id: 16,
       title: 'Everest Explorers Sketch (Red Accent)',
       image: 'https://i.postimg.cc/HkmT39nH/Mount-Everest-Climbing.jpg',
+      price: '$249.99',
       description: 'Detailed sketch of Mount Everest featuring explorers amidst the dramatic landscape, rendered with a striking red accent against a muted background. Captures the grandeur of the mountain and the spirit of adventure. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, restaurants, or lounges seeking a sophisticated, nature-inspired, and artistic design.',
       marketingAngle: 'Embark on a visual journey to the summit. This Everest explorers sketch, with its bold red accent, brings the thrill of adventure to your space, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -135,6 +152,7 @@ const products = {
       id: 17,
       title: 'Himalayan Village Relief (Red Accent)',
       image: 'https://i.postimg.cc/C5DVsRVz/Mountain-Village.jpg',
+      price: '$249.99',
       description: 'Relief-style mural depicting a Himalayan village amidst mountains, featuring a distinct red accent against a muted background. Creates a striking visual contrast and a sense of rustic charm. Textural details and depth enhance the scene. Customizable colors and dimensions, providing flexibility to adapt the mural to any space, from expansive lobbies to intimate dining areas, ensuring a perfect fit. Ideal for hotels, restaurants, or lounges seeking a unique and eye-catching nature-inspired design.',
       marketingAngle: 'Add a touch of dramatic beauty to your space. This relief mural, with its bold red accent, brings the Himalayan landscape to life, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -143,6 +161,7 @@ const products = {
       id: 18,
       title: 'Himalayan Caravan Sketch (Monochrome)',
       image: 'https://i.postimg.cc/JnSLXbvf/Mountain-Yak.jpg',
+      price: '$249.99',
       description: 'Detailed monochrome sketch of a caravan traversing a rugged Himalayan mountain landscape. Captures the grandeur of the mountains and the spirit of adventure. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, travel agencies, or lounges seeking a dramatic, nature-inspired design.',
       marketingAngle: 'Bring the tranquility of the Himalayas to your space. This detailed monochrome sketch offers a timeless aesthetic and a sense of peaceful retreat, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -151,6 +170,7 @@ const products = {
       id: 19,
       title: 'Himalayan Village Relief (Warm Orange)',
       image: 'https://i.postimg.cc/vmHbw85N/Mountain-House.jpg',
+      price: '$249.99',
       description: 'Relief-style mural depicting a Himalayan village amidst mountains, featuring a warm orange palette. Creates a cozy and inviting atmosphere with a touch of rustic charm. Textural details and depth enhance the scene. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or lounges seeking a unique and eye-catching nature-inspired design.',
       marketingAngle: 'Infuse your space with the warmth and beauty of the Himalayas. This relief mural, with its inviting orange hues, brings the landscape to life, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -159,6 +179,7 @@ const products = {
       id: 20,
       title: 'Newari Women at Well Sketch',
       image: 'https://i.postimg.cc/XNy3bzy4/Newari-Art.jpg',
+      price: '$249.99',
       description: 'Detailed sketch depicting two Newari women drawing water from a traditional well, set against a backdrop of historic architecture. Monochromatic with subtle warm tones, creating a nostalgic and culturally rich atmosphere. Captures a moment of daily life and architectural detail. Customizable colors and dimensions, allowing you to tailor the mural to perfectly match your establishments aesthetic and create a memorable experience for your guests. Ideal for hotels, restaurants, or cultural centers seeking a sophisticated and authentic touch.',
       marketingAngle: 'Add a touch of cultural heritage and timeless charm to your space. This detailed sketch captures a serene moment of Newari life, offering a unique and authentic aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -167,6 +188,7 @@ const products = {
       id: 21,
       title: 'Swoyambhunath Stupa Relief (Two-Tone)',
       image: 'https://i.postimg.cc/SNF4NfW8/Swoyambhunath.jpg',
+      price: '$249.99',
       description: 'Relief-style mural of Boudhanath Stupa, featuring a striking two-tone color scheme: a warm coral-pink background with a contrasting green for the stupa details. Creates a visually captivating and culturally rich atmosphere. Textural details and depth enhance the scene. Customizable colors and dimensions, providing flexibility to adapt the mural to any space, from expansive lobbies to intimate dining areas, ensuring a perfect fit. Ideal for hotels, restaurants, or cultural centers seeking a sophisticated and authentic touch.',
       marketingAngle: 'Infuse your space with cultural vibrancy and artistic flair. This Boudhanath Stupa relief mural, with its bold two-tone palette, creates a captivating focal point, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -175,6 +197,7 @@ const products = {
       id: 22,
       title: 'Himalayan Village Terraces Sketch (Orange Palette)',
       image: 'https://i.postimg.cc/TP4M8VdK/Village-Art-2.jpg',
+      price: '$249.99',
       description: 'Stylized sketch of a Himalayan village with terraced fields, featuring a warm, muted color palette (reds, oranges, yellows). Creates a cozy and serene atmosphere with a touch of rustic charm. Captures the unique landscape and village life. Customizable colors and dimensions, providing flexibility to adapt the mural to any space, from expansive lobbies to intimate dining areas, ensuring a perfect fit. Ideal for hotels, restaurants, or lounges seeking a peaceful, nature-inspired design.',
       marketingAngle: 'Infuse your space with the warmth and tranquility of the Himalayas. This inviting mural brings a touch of rustic beauty and peaceful scenery, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -183,6 +206,7 @@ const products = {
       id: 23,
       title: 'Himalayan Village Relief (Warm Orange)',
       image: 'https://i.postimg.cc/Gp7rL0Qh/Mountain-village-art.jpg',
+      price: '$249.99',
       description: 'Relief-style mural depicting a Himalayan village amidst mountains, featuring a warm orange palette. Creates a cozy and inviting atmosphere with a touch of rustic charm. Textural details and depth enhance the scene. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, restaurants, or lounges seeking a unique and eye-catching nature-inspired design.',
       marketingAngle: 'Infuse your space with the warmth and beauty of the Himalayas. This relief mural, with its inviting orange hues, brings the landscape to life, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -191,6 +215,7 @@ const products = {
       id: 24,
       title: 'White Deer Family Relief',
       image: 'https://i.postimg.cc/V66TDdXz/Deer-Painting.jpg',
+      price: '$249.99',
       description: 'Elegant relief-style mural featuring a family of white deer amidst stylized, textured branches. Creates a sophisticated and serene atmosphere with a touch of nature-inspired artistry. Customizable colors and dimensions, allowing you to tailor the mural to perfectly match your establishments aesthetic and create a memorable experience for your guests. Ideal for hotels, spas, or luxury residences seeking a calming and visually captivating design.',
       marketingAngle: 'Bring a touch of serene elegance to your space. This white deer family relief mural offers a unique blend of nature-inspired artistry and sophisticated design, tailored to your vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -199,6 +224,7 @@ const products = {
       id: 25,
       title: 'Mountain Deer Relief (Monochrome)',
       image: 'https://i.postimg.cc/4dYGn8Lv/Mountain-with-deer.jpg',
+      price: '$249.99',
       description: 'Monochromatic relief-style mural depicting a serene mountain landscape with deer amidst stylized trees and rocky terrain. Creates a tranquil and sophisticated atmosphere with a touch of nature-inspired artistry. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, spas, or luxury residences seeking a calming and visually captivating design.',
       marketingAngle: 'Bring the serene beauty of the mountains indoors. This monochromatic deer relief mural offers a unique blend of nature-inspired artistry and sophisticated design, tailored to your vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
@@ -214,6 +240,20 @@ const Products = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const [currentCollection, setCurrentCollection] = useState('murals');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
 
   const filteredProducts = useMemo(() => {
     if (searchQuery.trim()) {
@@ -283,6 +323,16 @@ const Products = () => {
     setSelectedProduct(collection[newIndex]);
   };
 
+  // Style object for hiding scrollbar
+  const scrollContainerStyle = {
+    height: '700px',
+    overflowY: 'auto',
+    ...(isMobile && {
+      scrollbarWidth: 'none', // For Firefox
+      msOverflowStyle: 'none', // For IE and Edge
+    })
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50" id="products">
       <div className="absolute inset-0 overflow-hidden opacity-20">
@@ -311,7 +361,7 @@ const Products = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-0 md:px-4 relative z-10">
         <motion.h2 
           className="text-4xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
@@ -324,7 +374,7 @@ const Products = () => {
         </motion.h2>
         
         <motion.div 
-          className="max-w-3xl mx-auto mb-12"
+          className="max-w-3xl mx-auto mb-12 px-4" /* Maintain padding for search bar */
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -353,7 +403,9 @@ const Products = () => {
         
         <div className="flex justify-center">
           <motion.div
-            className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20 w-full max-w-4xl"
+            className={`bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20 w-full max-w-4xl ${
+              isMobile ? '!rounded-none !border-0 !shadow-none' : ''
+            }`}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -361,31 +413,51 @@ const Products = () => {
             <h3 className="text-2xl font-semibold p-6 text-gray-800 bg-gradient-to-r from-blue-50 to-purple-50 sticky top-0 z-10 border-b border-white/20 text-center">
               Digital Wall Painting
             </h3>
-            <div className="overflow-y-auto" style={{ height: '700px' }}>
-              <div className="grid grid-cols-2 gap-4 p-6">
+            <div 
+              className="overflow-y-auto"
+              style={{
+                height: '700px',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                ...(isMobile && {
+                  '&::-webkit-scrollbar': { display: 'none' }
+                })
+              }}
+            >
+              <div className={`grid grid-cols-2 ${isMobile ? 'gap-2' : 'gap-4 p-6'}`}>
                 {sortedProducts.murals && sortedProducts.murals.length > 0 ? (
                   sortedProducts.murals.map((product, index) => (
                     <motion.div
                       key={`mural-${product.id}`}
-                      className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-blue-200"
+                      className={`bg-white overflow-hidden cursor-pointer transition-all duration-300 border border-gray-100 hover:border-blue-200 ${
+                        isMobile ? '!rounded-none !border-b !border-r !border-t-0 !border-l-0' : 'rounded-lg shadow-md hover:shadow-lg'
+                      }`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.05 }}
-                      whileHover={{ scale: 1.02 }}
+                      whileHover={{ scale: isMobile ? 1 : 1.02 }}
                       onClick={() => handleProductClick(product, 'murals')}
-                      style={{ height: '200px' }} // Fixed height for each item
+                      style={{ height: isMobile ? 'auto' : '200px' }}
                     >
-                      <div className="relative h-full">
+                      <div className="relative" style={{ height: isMobile ? '180px' : '100%' }}>
                         <img
                           src={product.image}
                           alt={product.title}
                           className="w-full h-full object-cover"
                           loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
-                          <h4 className="text-white text-lg font-semibold drop-shadow-md">{product.title}</h4>
-                        </div>
+                        {!isMobile && (
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                            <h4 className="text-white text-lg font-semibold drop-shadow-md">{product.title}</h4>
+                          </div>
+                        )}
                       </div>
+                      {isMobile && (
+                        <div className="p-2 bg-white">
+                          <h4 className="text-gray-800 font-semibold text-sm line-clamp-1">{product.title}</h4>
+                          <p className="text-blue-600 font-medium text-xs">{product.price}</p>
+                        </div>
+                      )}
                     </motion.div>
                   ))
                 ) : (
@@ -404,7 +476,8 @@ const Products = () => {
         </div>
       </div>
 
-      {/* Full-size Image Modal */}
+
+      {/* Full-size Image Modal - Updated for mobile */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -415,7 +488,7 @@ const Products = () => {
             onClick={handleCloseImage}
           >
             <motion.div
-              className="relative max-w-6xl w-full max-h-[90vh]"
+              className={`relative ${isMobile ? 'w-full h-full' : 'max-w-6xl w-full max-h-[90vh]'}`}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -425,7 +498,7 @@ const Products = () => {
               <img
                 src={selectedImage}
                 alt="Full size"
-                className="max-w-full max-h-[90vh] object-contain"
+                className={`${isMobile ? 'w-full h-full object-contain' : 'max-w-full max-h-[90vh] object-contain'}`}
               />
               <motion.button 
                 className="absolute top-4 right-4 bg-black/50 text-white rounded-full p-2 shadow-lg hover:bg-black/75"
@@ -442,7 +515,7 @@ const Products = () => {
         )}
       </AnimatePresence>
 
-      {/* Product Modal with Navigation Arrows */}
+      {/* Product Modal with Navigation Arrows - Updated for mobile */}
       <AnimatePresence>
         {isModalOpen && selectedProduct && (
           <motion.div
@@ -453,7 +526,7 @@ const Products = () => {
             onClick={handleClose}
           >
             <motion.div
-              className="bg-gradient-to-br from-white to-gray-50 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/30 relative"
+              className={`bg-gradient-to-br from-white to-gray-50 ${isMobile ? 'rounded-none w-full h-full' : 'rounded-xl max-w-4xl w-full max-h-[90vh]'} overflow-y-auto shadow-2xl border border-white/30 relative`}
               initial={{ scale: 0.9, y: 50, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 50, opacity: 0 }}
@@ -503,7 +576,7 @@ const Products = () => {
                 <motion.img
                   src={selectedProduct.image}
                   alt={selectedProduct.title}
-                  className="w-full h-96 object-contain bg-gray-100 cursor-pointer"
+                  className={`w-full ${isMobile ? 'h-auto max-h-[50vh]' : 'h-auto max-h-[80vh]'} object-contain bg-gray-100 cursor-pointer`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
@@ -521,9 +594,9 @@ const Products = () => {
                 </motion.button>
               </div>
               
-              <div className="p-8">
+              <div className={`${isMobile ? 'p-4' : 'p-8'}`}>
                 <motion.h3 
-                  className="text-3xl font-bold text-gray-800 mb-4"
+                  className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-gray-800 mb-2`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
@@ -531,13 +604,22 @@ const Products = () => {
                   {selectedProduct.title}
                 </motion.h3>
                 
+                <motion.p
+                  className="text-blue-600 text-xl font-medium mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.35 }}
+                >
+                  {selectedProduct.price}
+                </motion.p>
+                
                 <motion.div
                   className="prose max-w-none"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <p className="text-gray-700 mb-6 text-lg">
+                  <p className={`text-gray-700 mb-6 ${isMobile ? 'text-base' : 'text-lg'}`}>
                     {selectedProduct.description}
                   </p>
                   
