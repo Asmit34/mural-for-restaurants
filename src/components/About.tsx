@@ -11,11 +11,11 @@ export default function About() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    "https://i.postimg.cc/8cJRgyRB/Bhaktapur-2.jpg",
-    "https://i.postimg.cc/t4Hh8NYW/Everest.jpg",
-    "https://i.postimg.cc/D0XXMShx/Nepali-Kitchen.jpg",
-    "https://i.postimg.cc/xCqHLs4D/Mountain-Yak.jpg",
-    "https://i.postimg.cc/zfzTGDwf/Mountain-Art-Village.jpg"
+    "https://i.postimg.cc/TP4M8VdK/Village-Art-2.jpg",
+    "https://i.postimg.cc/4dYGn8Lv/Mountain-with-deer.jpg",
+    "https://i.postimg.cc/DZ4V7S0B/Village-Art-3.jpg",
+    "https://i.postimg.cc/wTXptRVr/Newari-Art-2.jpg",
+    "https://i.postimg.cc/Z5L4QvvN/Mount-Everest.jpg"
   ];
 
   useEffect(() => {
