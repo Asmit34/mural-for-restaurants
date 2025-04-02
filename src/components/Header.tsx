@@ -68,7 +68,6 @@ export default function Header() {
     if (!video) return;
 
     const handleTimeUpdate = () => {
-      // Update current time
       if (!isSeeking) {
         setCurrentTime(video.currentTime);
       }
@@ -165,7 +164,6 @@ export default function Header() {
     }
   };
 
-  // Handle manual content navigation
   const goToContentSegment = (index) => {
     if (!videoRef.current) return;
 
@@ -177,34 +175,18 @@ export default function Header() {
     setCurrentContentIndex(index);
   };
 
-  const handleProgressBarMouseDown = () => {
+  const handleProgressBarMouseDown = (e) => {
     setIsSeeking(true);
+    handleProgressBarClick(e);
   };
 
-  const handleProgressBarMouseUp = (e) => {
-    if (!videoRef.current || !progressBarRef.current) return;
-    
-    const progressBar = progressBarRef.current;
-    const rect = progressBar.getBoundingClientRect();
-    const percent = (e.clientX - rect.left) / rect.width;
-    const newTime = percent * duration;
-    
-    videoRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
+  const handleProgressBarMouseUp = () => {
     setIsSeeking(false);
   };
 
   const handleProgressBarMouseMove = (e) => {
     if (!isSeeking) return;
-    
-    const progressBar = progressBarRef.current;
-    if (!progressBar) return;
-    
-    const rect = progressBar.getBoundingClientRect();
-    const percent = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
-    const newTime = percent * duration;
-    
-    setCurrentTime(newTime);
+    handleProgressBarClick(e);
   };
 
   const handleProgressBarClick = (e) => {
@@ -212,11 +194,18 @@ export default function Header() {
     
     const progressBar = progressBarRef.current;
     const rect = progressBar.getBoundingClientRect();
-    const percent = (e.clientX - rect.left) / rect.width;
+    const percent = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
     const newTime = percent * duration;
     
     videoRef.current.currentTime = newTime;
     setCurrentTime(newTime);
+    
+    const segmentCount = textContent.length;
+    const newIndex = Math.min(
+      Math.floor(percent * segmentCount),
+      segmentCount - 1
+    );
+    setCurrentContentIndex(newIndex);
   };
 
   return (
@@ -326,7 +315,7 @@ export default function Header() {
               onMouseDown={handleProgressBarMouseDown}
               onMouseUp={handleProgressBarMouseUp}
               onMouseMove={handleProgressBarMouseMove}
-              onMouseLeave={() => setIsSeeking(false)}
+              onMouseLeave={handleProgressBarMouseUp}
             >
               <div 
                 ref={progressBarRef}

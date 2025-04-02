@@ -31,7 +31,6 @@ const products = {
       description: 'Description: Detailed monochrome sketch of Gorkha Darbar, featuring the palace architecture against a backdrop of Himalayan mountains. Captures the historical significance and natural beauty of the location. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and culturally rich ambiance with a modern touch.',
       marketingAngle: 'Elevate your space with a blend of history and contemporary artistry. This Gorkha Darbar mural offers a sophisticated and culturally immersive experience, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
-
     },
     {
       id: 4,
@@ -209,65 +208,7 @@ const products = {
       marketingAngle: 'Bring the serene beauty of the mountains indoors. This monochromatic deer relief mural offers a unique blend of nature-inspired artistry and sophisticated design, tailored to your vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
-  ],
-  canvas: [
-    {
-      id: 1,
-      title: 'Abstract Canvas Collection',
-      image: 'https://i.postimg.cc/VsVHgf7F/Yak-Mountain.jpg',
-      description: 'Contemporary abstract artworks that bring energy to modern spaces. Each piece is hand-finished for unique texture and depth.',
-      details: 'Gallery-wrapped edges | UV-protective varnish | Ready to hang'
-    },
-    {
-      id: 2,
-      title: 'Digital Art Prints',
-      image: 'https://i.postimg.cc/Kvpm9jc0/Village-Mountain-Art.jpg',
-      description: 'High-resolution digital artworks printed on premium canvas with archival-quality inks that resist fading for decades.',
-      details: 'Museum-grade canvas | 1.5" depth stretcher bars | Optional framing'
-    },
-    {
-      id: 3,
-      title: 'Abstract Canvas Collection',
-      image: 'https://i.postimg.cc/W1DTxVhT/Village-nepal.jpg',
-      description: 'Contemporary abstract artworks that bring energy to modern spaces. Each piece is hand-finished for unique texture and depth.',
-      details: 'Gallery-wrapped edges | UV-protective varnish | Ready to hang'
-    },
-    {
-      id: 4,
-      title: 'Digital Art Prints',
-      image: 'https://i.postimg.cc/DwtnTNXs/Village-Yak.jpg',
-      description: 'High-resolution digital artworks printed on premium canvas with archival-quality inks that resist fading for decades.',
-      details: 'Museum-grade canvas | 1.5" depth stretcher bars | Optional framing'
-    },
-    {
-      id: 5,
-      title: 'Abstract Canvas Collection',
-      image: 'https://i.postimg.cc/LsLR6VtW/Yak-Mountain.jpg',
-      description: 'Contemporary abstract artworks that bring energy to modern spaces. Each piece is hand-finished for unique texture and depth.',
-      details: 'Gallery-wrapped edges | UV-protective varnish | Ready to hang'
-    },
-    {
-      id: 6,
-      title: 'Digital Art Prints',
-      image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=2940&auto=format&fit=crop',
-      description: 'High-resolution digital artworks printed on premium canvas with archival-quality inks that resist fading for decades.',
-      details: 'Museum-grade canvas | 1.5" depth stretcher bars | Optional framing'
-    },
-    {
-      id: 7,
-      title: 'Abstract Canvas Collection',
-      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=2858&auto=format&fit=crop',
-      description: 'Contemporary abstract artworks that bring energy to modern spaces. Each piece is hand-finished for unique texture and depth.',
-      details: 'Gallery-wrapped edges | UV-protective varnish | Ready to hang'
-    },
-    {
-      id: 8,
-      title: 'Digital Art Prints',
-      image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=2940&auto=format&fit=crop',
-      description: 'High-resolution digital artworks printed on premium canvas with archival-quality inks that resist fading for decades.',
-      details: 'Museum-grade canvas | 1.5" depth stretcher bars | Optional framing'
-    },
-  ],
+  ]
 };
 
 const Products = () => {
@@ -292,10 +233,6 @@ const Products = () => {
         murals: result.murals?.filter(product => 
           product.title.toLowerCase().includes(query) ||
           product.description.toLowerCase().includes(query)
-        ) || [],
-        canvas: result.canvas?.filter(product => 
-          product.title.toLowerCase().includes(query) ||
-          product.description.toLowerCase().includes(query)
         ) || []
       };
     }
@@ -313,8 +250,7 @@ const Products = () => {
     const sorter = sortFunctions[sortOption] || sortFunctions['default'];
     
     return {
-      murals: [...filteredProducts.murals || []].sort(sorter),
-      canvas: [...filteredProducts.canvas || []].sort(sorter)
+      murals: [...filteredProducts.murals || []].sort(sorter)
     };
   }, [filteredProducts, sortOption]);
 
@@ -362,7 +298,6 @@ const Products = () => {
   };
 
   const showMurals = filter === 'all' || filter === 'murals';
-  const showCanvas = filter === 'all' || filter === 'canvas';
 
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50" id="products">
@@ -419,7 +354,7 @@ const Products = () => {
           />
           
           <div className="flex flex-wrap justify-center gap-4 mt-4">
-            {['all', 'murals', 'canvas'].map((filterType) => (
+            {['all', 'murals'].map((filterType) => (
               <motion.button
                 key={filterType}
                 className={`px-4 py-2 rounded-full ${filter === filterType ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md' : 'bg-white text-gray-700 shadow-sm'}`}
@@ -427,7 +362,7 @@ const Products = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {filterType === 'all' ? 'All Products' : filterType === 'murals' ? 'Murals Only' : 'Canvas Only'}
+                {filterType === 'all' ? 'All Products' : 'Murals Only'}
               </motion.button>
             ))}
             
@@ -444,7 +379,7 @@ const Products = () => {
           </div>
         </motion.div>
         
-        <div className={`grid ${showMurals && showCanvas ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'} gap-3 h-[1200px] md:h-[700px]`}>
+        <div className="grid grid-cols-1 gap-3 h-[1200px] md:h-[700px]">
           {showMurals && (
             <motion.div
               className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20"
@@ -453,7 +388,7 @@ const Products = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <h3 className="text-2xl font-semibold p-6 text-gray-800 bg-gradient-to-r from-blue-50 to-purple-50 sticky top-0 z-10 border-b border-white/20">
-                Digital Wal Painting <span className="ml-2 text-sm text-gray-500"></span>
+                Digital Wall Painting <span className="ml-2 text-sm text-gray-500"></span>
               </h3>
               <div className="overflow-y-auto h-[1200px] md:h-[600px] p-4">
                 <div className="grid grid-cols-1 sm:grid-cols-1 gap-1">
@@ -489,57 +424,6 @@ const Products = () => {
                       transition={{ delay: 0.4 }}
                     >
                       {searchQuery ? 'No murals match your search' : 'No murals available'}
-                    </motion.div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {showCanvas && (
-            <motion.div
-              className="bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-white/20"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <h3 className="text-2xl font-semibold p-6 text-gray-800 bg-gradient-to-r from-purple-50 to-blue-50 sticky top-0 z-10 border-b border-white/20">
-                Canvas <span className="ml-2 text-sm text-gray-500"></span>
-              </h3>
-              <div className="overflow-y-auto h-[1200px] md:h-[600px] p-4">
-                <div className="grid grid-cols-1 sm:grid-cols-1 gap-1">
-                  {sortedProducts.canvas && sortedProducts.canvas.length > 0 ? (
-                    sortedProducts.canvas.map((product, index) => (
-                      <motion.div
-                        key={`canvas-${product.id}`}
-                        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-purple-200"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.05 + 0.1 }}
-                        whileHover={{ scale: 1.02 }}
-                        onClick={() => handleProductClick(product, 'canvas')}
-                      >
-                        <div className="relative h-40 sm:h-48">
-                          <img
-                            src={product.image}
-                            alt={product.title}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
-                            <h4 className="text-white text-lg font-semibold drop-shadow-md">{product.title}</h4>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))
-                  ) : (
-                    <motion.div
-                      className="text-center text-gray-500 py-8"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      {searchQuery ? 'No canvas prints match your search' : 'No canvas prints available'}
                     </motion.div>
                   )}
                 </div>
