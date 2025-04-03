@@ -109,7 +109,7 @@ export default function Contact() {
     const subject = `Contact Form Submission from ${formData.name}`;
     const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
     
-    window.location.href = `mailto:bestarttechnology@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:oliasmit872@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     setStatus('success');
     setFormData({ name: '', email: '', message: '' });
@@ -228,7 +228,7 @@ export default function Contact() {
                 </motion.div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Message Sent!</h3>
                 <p className="text-gray-600 mb-4">Your email client should open automatically.</p>
-                <p className="text-gray-500 text-sm">If it doesn't, please email us directly at bestarttechnology@gmail.com</p>
+                <p className="text-gray-500 text-sm">If it doesn't, please email us directly at oliasmit872@gmail.com</p>
               </motion.div>
             ) : (
               <motion.form 
@@ -354,7 +354,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900">Email</h3>
                 <a 
-                  href="mailto:bestarttechnology@gmail.com" 
+                  href="mailto:oliasmit872@gmail.com" 
                   className="mt-2 text-indigo-600 hover:text-indigo-800 transition-colors flex items-center"
                 >
                   bestarttechnology@gmail.com
