@@ -27,32 +27,32 @@ const products = {
   murals: [
     {
       id: 1,
-      title: 'Boudhanath Stupa Relief',
-      image: 'https://i.postimg.cc/gJT75mK8/Bouddhanath.jpg',
+      title: 'Everest Region Sketch (Warm Hues)',
+      image: 'https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Stylized relief of Boudhanath Stupa in soft rose-pink with gold line accents. Creates a tactile, sculptural effect and serene, cultural atmosphere. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for luxury hotels, spas, or restaurants seeking a sophisticated, tranquil ambiance.',
-      marketingAngle: "Add spiritual elegance and textural artistry. This unique mural brings the serenity of Boudhanath Stupa to your space, tailored to your decor with customizable options.",
+      description: 'Stylized sketch of the Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Warm, muted hues (pinkish tones) create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
+      marketingAngle: 'Capture the majesty of Everest. This warm-toned sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, customized to fit your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
       id: 2,
-      title: 'Bhaktapur Durbar Square Sketch',
-      image: 'https://i.postimg.cc/nLTg4vjd/Bhaktapur.jpg',
+      title: 'Everest Explorers Sketch (Red Accent)',
+      image: 'https://i.postimg.cc/3Rkx2tnk/Mount-Everest-Mokeup.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Stylized sketch of Bhaktapur Durbar Square, featuring detailed architectural outlines and a soft, warm-toned (pinkish) palette. Captures the historical charm and intricate craftsmanship of the square. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a unique, artistic, and culturally rich ambiance.',
-      marketingAngle: 'Infuse your space with artistic elegance and historical charm. This sketch of Bhaktapur Durbar Square offers a unique visual experience, customizable to perfectly complement your decor.',
+      description: 'Detailed sketch of Mount Everest featuring explorers amidst the dramatic landscape, rendered with a striking red accent against a muted background. Captures the grandeur of the mountain and the spirit of adventure. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, restaurants, or lounges seeking a sophisticated, nature-inspired, and artistic design.',
+      marketingAngle: 'Embark on a visual journey to the summit. This Everest explorers sketch, with its bold red accent, brings the thrill of adventure to your space, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
       id: 3,
-      title: 'Gorkha Darbar Sketch (Monochrome)',
-      image: 'https://i.postimg.cc/DmVMv6Hz/Gorkha-Darbar.jpg',
+      title: 'Swoyambhunath Stupa Relief (Two-Tone)',
+      image: 'https://i.postimg.cc/gJ1ks3TN/s-WOYAMBHUNATH-Stupa.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Detailed monochrome sketch of Gorkha Darbar, featuring the palace architecture against a backdrop of Himalayan mountains. Captures the historical significance and natural beauty of the location. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and culturally rich ambiance with a modern touch.',
-      marketingAngle: 'Elevate your space with a blend of history and contemporary artistry. This Gorkha Darbar mural offers a sophisticated and culturally immersive experience, tailored to your design vision.',
+      description: 'Relief-style mural of Boudhanath Stupa, featuring a striking two-tone color scheme: a warm coral-pink background with a contrasting green for the stupa details. Creates a visually captivating and culturally rich atmosphere. Textural details and depth enhance the scene. Customizable colors and dimensions, providing flexibility to adapt the mural to any space, from expansive lobbies to intimate dining areas, ensuring a perfect fit. Ideal for hotels, restaurants, or cultural centers seeking a sophisticated and authentic touch.',
+      marketingAngle: 'Infuse your space with cultural vibrancy and artistic flair. This Boudhanath Stupa relief mural, with its bold two-tone palette, creates a captivating focal point, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
@@ -67,12 +67,12 @@ const products = {
     },
     {
       id: 5,
-      title: 'Kathmandu Skyline Sketch (Sepia Tones)',
-      image: 'https://i.postimg.cc/7Y0xgWxm/Kathmandu.jpg',
+      title: ' Patan Durbar Square Sketch (Warm Tones)',
+      image: 'https://i.postimg.cc/h4J0GgbB/Patan-Darbar-Square.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Detailed sketch of the Kathmandu skyline, featuring iconic temples and stupas against a backdrop of the Himalayan mountains. Rendered in sepia tones, creating a nostalgic and culturally rich atmosphere. Captures the unique architecture and landscape of the city. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and artistic ambiance.',
-      marketingAngle: 'Bring the timeless charm of Kathmandu to your space. This sepia-toned skyline sketch offers a unique blend of artistry and cultural immersion, tailored to your design vision.',
+      description: 'Detailed sketch of Patan Durbar Square, featuring its iconic temples and bustling street life, rendered in warm, muted tones (pinkish). Captures the historical charm and architectural beauty of the square. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, restaurants, or cultural spaces seeking a sophisticated and culturally rich ambiance.',
+      marketingAngle: 'Infuse your space with the timeless elegance of Patan. This warm-toned sketch brings the historical charm of Durbar Square to life, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
@@ -87,22 +87,22 @@ const products = {
     },
     {
       id: 7,
-      title: 'Mount Everest Sketch (Textured Vintage)',
-      image: 'https://i.postimg.cc/Z5L4QvvN/Mount-Everest.jpg',
+      title: 'Boudhanath Stupa Relief',
+      image: 'https://i.postimg.cc/Xv7JYj5c/BOUDDHANATH-Stupa.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Textured vintage sketch of the Mount Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Uses a muted, aged palette with hints of green to create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
-      marketingAngle: 'Capture the majesty of Everest with a touch of timeless artistry. This textured vintage sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, tailored to your design vision.',
+      description: 'Stylized relief of Boudhanath Stupa in soft rose-pink with gold line accents. Creates a tactile, sculptural effect and serene, cultural atmosphere. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for luxury hotels, spas, or restaurants seeking a sophisticated, tranquil ambiance.',
+      marketingAngle: "Add spiritual elegance and textural artistry. This unique mural brings the serenity of Boudhanath Stupa to your space, tailored to your decor with customizable options.",
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
       id: 8,
-      title: 'Everest Region Sketch (Warm Hues)',
-      image: 'https://i.postimg.cc/qB9J6TdN/Mount-Everest-Art.jpg',
+      title: 'Gorkha Darbar Sketch (Monochrome)',
+      image: 'https://i.postimg.cc/DmVMv6Hz/Gorkha-Darbar.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Stylized sketch of the Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Warm, muted hues (pinkish tones) create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
-      marketingAngle: 'Capture the majesty of Everest. This warm-toned sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, customized to fit your design vision.',
+      description: 'Detailed monochrome sketch of Gorkha Darbar, featuring the palace architecture against a backdrop of Himalayan mountains. Captures the historical significance and natural beauty of the location. Customizable colors and dimensions to maximize the impact of the mural, whether its a grand focal point or a subtle backdrop, adapting to any setting. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and culturally rich ambiance with a modern touch.',
+      marketingAngle: 'Elevate your space with a blend of history and contemporary artistry. This Gorkha Darbar mural offers a sophisticated and culturally immersive experience, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
@@ -177,12 +177,12 @@ const products = {
     },
     {
       id: 16,
-      title: 'Everest Explorers Sketch (Red Accent)',
-      image: 'https://i.postimg.cc/HkmT39nH/Mount-Everest-Climbing.jpg',
+      title: 'Bhaktapur Durbar Square Sketch',
+      image: 'https://i.postimg.cc/nLTg4vjd/Bhaktapur.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Detailed sketch of Mount Everest featuring explorers amidst the dramatic landscape, rendered with a striking red accent against a muted background. Captures the grandeur of the mountain and the spirit of adventure. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, restaurants, or lounges seeking a sophisticated, nature-inspired, and artistic design.',
-      marketingAngle: 'Embark on a visual journey to the summit. This Everest explorers sketch, with its bold red accent, brings the thrill of adventure to your space, tailored to your design vision.',
+      description: 'Stylized sketch of Bhaktapur Durbar Square, featuring detailed architectural outlines and a soft, warm-toned (pinkish) palette. Captures the historical charm and intricate craftsmanship of the square. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, restaurants, or cafes seeking a unique, artistic, and culturally rich ambiance.',
+      marketingAngle: 'Infuse your space with artistic elegance and historical charm. This sketch of Bhaktapur Durbar Square offers a unique visual experience, customizable to perfectly complement your decor.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
@@ -227,12 +227,12 @@ const products = {
     },
     {
       id: 21,
-      title: 'Swoyambhunath Stupa Relief (Two-Tone)',
-      image: 'https://i.postimg.cc/SNF4NfW8/Swoyambhunath.jpg',
+      title: 'Mount Everest Sketch (Textured Vintage)',
+      image: 'https://i.postimg.cc/Z5L4QvvN/Mount-Everest.jpg',
       basePrice: 960,
       price: '$249.99',
-      description: 'Relief-style mural of Boudhanath Stupa, featuring a striking two-tone color scheme: a warm coral-pink background with a contrasting green for the stupa details. Creates a visually captivating and culturally rich atmosphere. Textural details and depth enhance the scene. Customizable colors and dimensions, providing flexibility to adapt the mural to any space, from expansive lobbies to intimate dining areas, ensuring a perfect fit. Ideal for hotels, restaurants, or cultural centers seeking a sophisticated and authentic touch.',
-      marketingAngle: 'Infuse your space with cultural vibrancy and artistic flair. This Boudhanath Stupa relief mural, with its bold two-tone palette, creates a captivating focal point, tailored to your design vision.',
+      description: 'Textured vintage sketch of the Mount Everest region, featuring dramatic mountain peaks, misty valleys, and figures amidst the landscape. Uses a muted, aged palette with hints of green to create a serene yet adventurous atmosphere. Captures the grandeur of the Himalayas and the spirit of exploration. Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
+      marketingAngle: 'Capture the majesty of Everest with a touch of timeless artistry. This textured vintage sketch brings the epic landscape to your space, offering a serene yet adventurous aesthetic, tailored to your design vision.',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
@@ -257,6 +257,16 @@ const products = {
     },
     {
       id: 24,
+      title: 'Kathmandu Skyline Sketch (Sepia Tones)',
+      image: 'https://i.postimg.cc/7Y0xgWxm/Kathmandu.jpg',
+      basePrice: 960,
+      price: '$249.99',
+      description: 'Detailed sketch of the Kathmandu skyline, featuring iconic temples and stupas against a backdrop of the Himalayan mountains. Rendered in sepia tones, creating a nostalgic and culturally rich atmosphere. Captures the unique architecture and landscape of the city. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and artistic ambiance.',
+      marketingAngle: 'Bring the timeless charm of Kathmandu to your space. This sepia-toned skyline sketch offers a unique blend of artistry and cultural immersion, tailored to your design vision.',
+      details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
+    },
+    {
+      id: 25,
       title: 'White Deer Family Relief',
       image: 'https://i.postimg.cc/V66TDdXz/Deer-Painting.jpg',
       basePrice: 960,
@@ -266,13 +276,33 @@ const products = {
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
     {
-      id: 25,
+      id: 26,
       title: 'Mountain Deer Relief (Monochrome)',
       image: 'https://i.postimg.cc/4dYGn8Lv/Mountain-with-deer.jpg',
       basePrice: 960,
       price: '$249.99',
       description: 'Monochromatic relief-style mural depicting a serene mountain landscape with deer amidst stylized trees and rocky terrain. Creates a tranquil and sophisticated atmosphere with a touch of nature-inspired artistry. Customizable colors and dimensions to create a unique and personalized statement, tailored to your specific design vision and spatial requirements. Ideal for hotels, spas, or luxury residences seeking a calming and visually captivating design.',
       marketingAngle: 'Bring the serene beauty of the mountains indoors. This monochromatic deer relief mural offers a unique blend of nature-inspired artistry and sophisticated design, tailored to your vision.',
+      details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
+    },
+    {
+      id: 27,
+      title: ' Annapurna Mountain Sketch (Warm Tones)',
+      image: 'https://i.postimg.cc/QdDCvkxz/Annapurna.jpg',
+      basePrice: 960,
+      price: '$249.99',
+      description: 'Detailed sketch of the Annapurna mountain range, featuring its majestic peaks and lush vegetation, rendered in warm, muted tones (pinkish). Captures the grandeur of the Himalayas and the natural beauty of the region.  Customizable colors and dimensions, allowing you to tailor the mural to perfectly match your establishments aesthetic and create a memorable experience for your guests. Ideal for hotels, travel agencies, or lounges seeking a captivating and nature-inspired design.',
+      marketingAngle: 'Bring the awe-inspiring beauty of Annapurna to your space. This warm-toned sketch evokes a sense of adventure and tranquility, tailored to your design vision.',
+      details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
+    },
+    {
+      id: 28,
+      title: 'Janaki Temple Sketch (Vintage)',
+      image: 'https://i.postimg.cc/QdqCD9Fd/Janaki-Temple.jpg',
+      basePrice: 960,
+      price: '$249.99',
+      description: 'Detailed vintage-style sketch of the Janaki Temple, featuring its intricate architecture and historical grandeur. Uses a muted, aged palette to create a sense of timeless elegance. Captures the architectural details and cultural significance of the temple.  Customizable colors and dimensions to seamlessly integrate with your existing decor, ensuring a perfect fit for any space and enhancing the overall ambiance. Ideal for hotels, cultural centers, or restaurants seeking a sophisticated and historically rich ambiance.',
+      marketingAngle: 'Bring the timeless beauty of Janakpur to your space. This vintage sketch of the Janaki Temple offers a unique blend of artistry and cultural immersion, tailored to your design vision',
       details: 'Premium, fade-resistant pigments | Durable, long-lasting textures | Seamless integration with existing decor'
     },
   ]
@@ -425,6 +455,7 @@ const Products = () => {
             </motion.select>
           </div>
         </motion.div>
+
         <div className="flex justify-center">
           {isMobile ? (
             <motion.div
@@ -439,13 +470,13 @@ const Products = () => {
               <div 
                 className="overflow-y-auto"
                 style={{
-                  height: '700px',
+                  height: '800px',
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none',
                   '&::-webkit-scrollbar': { display: 'none' }
                 }}
               >
-                <div className="grid grid-cols-2 gap-2 p-0">
+                <div className="grid grid-cols-2 gap-1 p-0">
                   {sortedProducts.murals && sortedProducts.murals.length > 0 ? (
                     sortedProducts.murals.map((product, index) => (
                       <motion.div
@@ -486,6 +517,7 @@ const Products = () => {
               </div>
             </motion.div>
           ) : (
+
             <div className="w-full max-w-7xl">
               <motion.div
                 initial={{ opacity: 0, y: -50 }}
@@ -498,12 +530,12 @@ const Products = () => {
                 <div 
                   className="overflow-y-auto"
                   style={{
-                    height: '700px',
+                    height: '1100px',
                     scrollbarWidth: 'none',
                     msOverflowStyle: 'none'
                   }}
                 >
-                  <div className="grid grid-cols-3 gap-4 p-0">
+                  <div className="grid grid-cols-3 gap-3 p-0">
                     {sortedProducts.murals && sortedProducts.murals.length > 0 ? (
                       sortedProducts.murals.map((product, index) => (
                         <motion.div
@@ -515,7 +547,7 @@ const Products = () => {
                           whileHover={{ scale: 1.02 }}
                           onClick={() => handleProductClick(product, 'murals')}
                         >
-                          <div className="relative" style={{ height: '200px' }}>
+                          <div className="relative" style={{ height: '300px'}}>
                             <img
                               src={product.image}
                               alt={product.title}
