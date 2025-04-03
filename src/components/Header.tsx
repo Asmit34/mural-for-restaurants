@@ -397,7 +397,7 @@ const Header = () => {
     <div className="relative">
       {/* Navigation Bar */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 py-4' : 'bg-black/60 py-6'}`}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-9">
           <div className="flex items-center justify-between">
             <h1 className="text-white text-2xl font-bold">
               Best Art Technology
