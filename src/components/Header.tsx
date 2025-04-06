@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Constants
 const NAV_ITEMS = [
@@ -395,63 +396,124 @@ const Header = () => {
 
   return (
     <div className="relative">
-      {/* Navigation Bar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 py-4' : 'bg-black/60 py-6'}`}>
-        <div className="container mx-auto px-8">  {/* Changed from px-4 to px-6 */}
+      {/* Navigation Bar with updated styling */}
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 100 }}
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-gradient-to-r from-indigo-900/90 via-purple-900/90 to-indigo-900/90 backdrop-blur-lg py-4' 
+            : 'bg-gradient-to-r from-indigo-900/70 via-purple-900/70 to-indigo-900/70 backdrop-blur-md py-6'
+        }`}
+      >
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-white text-2xl font-bold">
+            <motion.h1 
+              className="text-white text-2xl font-bold animate-text-shimmer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               Best Art Technology
-            </h1>
+            </motion.h1>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {NAV_ITEMS.map((item) => (
-                <a
+              {NAV_ITEMS.map((item, index) => (
+                <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-white hover:text-blue-400 transition-colors duration-300 relative group"
+                  className="text-white relative group overflow-hidden"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-                </a>
+                  <span className="relative z-10">{item.name}</span>
+                  <motion.span 
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-white focus:outline-none ml-4"
+            {/* Mobile Menu Button with animation */}
+            <motion.button 
+              className="md:hidden text-white focus:outline-none"
               onClick={toggleMenu}
+              whileTap={{ scale: 0.9 }}
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+              <motion.div
+                animate={isMenuOpen ? "open" : "closed"}
+                variants={{
+                  open: { rotate: 180 },
+                  closed: { rotate: 0 }
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMenuOpen ? (
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </motion.div>
+            </motion.button>
           </div>
 
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden mt-4">
-              <div className="flex flex-col space-y-4 pb-4">
-                {NAV_ITEMS.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-white hover:text-blue-400 transition-colors duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Mobile Navigation with animation */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div 
+                className="md:hidden mt-4"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div 
+                  className="flex flex-col space-y-4 pb-4"
+                  variants={{
+                    open: { transition: { staggerChildren: 0.1 } },
+                    closed: { transition: { staggerChildren: 0.05 } }
+                  }}
+                >
+                  {NAV_ITEMS.map((item) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      className="text-white hover:text-blue-400 transition-colors duration-300"
+                      onClick={() => setIsMenuOpen(false)}
+                      whileHover={{ x: 10 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
       <div className="pt-20">
