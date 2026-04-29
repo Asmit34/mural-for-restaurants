@@ -17,10 +17,10 @@ const images = [
     "https://imglink.cc/cdn/rFx_9FjFaM.jpg",
     "https://imglink.cc/cdn/e7hbAdSzd0.jpg",
     "https://imglink.cc/cdn/E0-KZ4tcd8.jpg",
-    "https://imglink.cc/cdn/hANJWlrLxb.jpg"
+    "https://imglink.cc/cdn/hANJWlrLxb.jpg",
     "https://imglink.cc/cdn/aMyUEMCLU1.jpg",
     "https://imglink.cc/cdn/laD0wj-T6i.jpg",
-    "https://imglink.cc/cdn/axULVVqvXq.jpg"
+    "https://imglink.cc/cdn/axULVVqvXq.jpg",
     "https://imglink.cc/cdn/zWqtOFVOHK.jpg",
     "https://imglink.cc/cdn/kIQ4YkFLep.jpg",
     "https://imglink.cc/cdn/UymqEF1Mh4.jpg",
