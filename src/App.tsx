@@ -7,6 +7,7 @@ import Products from './components/Products';
 import About from './components/About';
 import Contact from './components/Contact';
 import MuralShowcase from './components/MuralShowcase';
+import ImageGallerySection from './components/ImageGallerySection';
 
 // Custom Pinterest SVG component
 const PinterestIcon = () => (
@@ -31,6 +32,7 @@ function App() {
           element={
             <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-purple-50">
               <Header />
+              <ImageGallerySection />
               <About />
               <MuralShowcase />
               <Products />
