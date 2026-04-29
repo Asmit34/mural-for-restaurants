@@ -3,7 +3,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const images = [
-    "https://imglink.cc/cdn/axULVVqvXq.jpg",
+    "https://imglink.cc/cdn/4haf1A1OI1.jpg",
+    "https://imglink.cc/cdn/X4mUBEgsEA.jpg",
+    "https://imglink.cc/cdn/aKIR0V4buC.jpg",
+    "https://imglink.cc/cdn/8hxIHQ96x7.jpg",
+    "https://imglink.cc/cdn/5jh12Aorld.jpg",
+    "https://imglink.cc/cdn/ftsTIWReMX.jpg",
+    "https://imglink.cc/cdn/Hp1HaXWB1O.jpg",
+    "https://imglink.cc/cdn/tt1J8znqEc.jpg",
+    "https://imglink.cc/cdn/asR1k5ZCZU.jpg",
+    "https://imglink.cc/cdn/CYE9jZWUXT.jpg",
+    "https://imglink.cc/cdn/VDmClCwshn.jpg",
+    "https://imglink.cc/cdn/rFx_9FjFaM.jpg",
+    "https://imglink.cc/cdn/e7hbAdSzd0.jpg",
+    "https://imglink.cc/cdn/E0-KZ4tcd8.jpg",
+    "https://imglink.cc/cdn/hANJWlrLxb.jpg"
+    "https://imglink.cc/cdn/aMyUEMCLU1.jpg",
+    "https://imglink.cc/cdn/laD0wj-T6i.jpg",
+    "https://imglink.cc/cdn/axULVVqvXq.jpg"
     "https://imglink.cc/cdn/zWqtOFVOHK.jpg",
     "https://imglink.cc/cdn/kIQ4YkFLep.jpg",
     "https://imglink.cc/cdn/UymqEF1Mh4.jpg",
