@@ -3,39 +3,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const images = [
-    "https://imglink.cc/cdn/4haf1A1OI1.jpg",
-    "https://imglink.cc/cdn/X4mUBEgsEA.jpg",
-    "https://imglink.cc/cdn/aKIR0V4buC.jpg",
-    "https://imglink.cc/cdn/8hxIHQ96x7.jpg",
-    "https://imglink.cc/cdn/5jh12Aorld.jpg",
-    "https://imglink.cc/cdn/ftsTIWReMX.jpg",
-    "https://imglink.cc/cdn/Hp1HaXWB1O.jpg",
-    "https://imglink.cc/cdn/tt1J8znqEc.jpg",
-    "https://imglink.cc/cdn/asR1k5ZCZU.jpg",
-    "https://imglink.cc/cdn/CYE9jZWUXT.jpg",
-    "https://imglink.cc/cdn/VDmClCwshn.jpg",
-    "https://imglink.cc/cdn/rFx_9FjFaM.jpg",
-    "https://imglink.cc/cdn/e7hbAdSzd0.jpg",
-    "https://imglink.cc/cdn/E0-KZ4tcd8.jpg",
-    "https://imglink.cc/cdn/hANJWlrLxb.jpg",
-    "https://imglink.cc/cdn/aMyUEMCLU1.jpg",
-    "https://imglink.cc/cdn/laD0wj-T6i.jpg",
-    "https://imglink.cc/cdn/axULVVqvXq.jpg",
-    "https://imglink.cc/cdn/zWqtOFVOHK.jpg",
-    "https://imglink.cc/cdn/kIQ4YkFLep.jpg",
-    "https://imglink.cc/cdn/UymqEF1Mh4.jpg",
-    "https://imglink.cc/cdn/A1ybDXTSQX.jpg",
-    "https://imglink.cc/cdn/l9irmImujh.jpg",
-    "https://imglink.cc/cdn/uZNE3bFDHh.jpg",
-    "https://imglink.cc/cdn/H7UqtYim4b.jpg",
-    "https://imglink.cc/cdn/63YXmovxwc.jpg",
-    "https://imglink.cc/cdn/WNE5ix-Ei-.jpg",
-    "https://imglink.cc/cdn/xy6ySMQ2pl.jpg",
-    "https://imglink.cc/cdn/xLyeGJvys-.jpg",
-    "https://imglink.cc/cdn/Gn28fnW-tN.jpg",
-    "https://imglink.cc/cdn/EPX2JwPcXC.jpg",
-    "https://imglink.cc/cdn/24OG2lmPIu.jpg"
+  "https://imglink.cc/cdn/bID_RCbxjr.jpg",
+  "https://imglink.cc/cdn/lwvLi4tSGH.jpg",
+  "https://imglink.cc/cdn/m0DBTC20Zm.jpg",
+  "https://imglink.cc/cdn/pEEyAwwpyn.jpg",
+  "https://imglink.cc/cdn/cd5CBzM8UV.jpg",
+  "https://imglink.cc/cdn/VTmSptktLH.jpg",
+  "https://imglink.cc/cdn/WPnaPJfUtf.jpg",
+  "https://imglink.cc/cdn/KiwEj_mcrc.jpg",
+  "https://imglink.cc/cdn/xpp8pabX6D.jpg",
+  "https://imglink.cc/cdn/P2DJF8_zNx.jpg",
+  "https://imglink.cc/cdn/W2_7fH7gWw.jpg",
+  "https://imglink.cc/cdn/E9QMOcaICM.jpg",
+  "https://imglink.cc/cdn/9Cg4G9dobO.jpg",
+  "https://imglink.cc/cdn/pz0Wf0N8FH.jpg",
+  "https://imglink.cc/cdn/gUNg3Pvwx7.jpg",
+  "https://imglink.cc/cdn/F7dHk-E-g4.jpg",
+  "https://imglink.cc/cdn/uIF6OF8U_-.jpg",
+  "https://imglink.cc/cdn/zx8XLxU6b3.jpg",
+  "https://imglink.cc/cdn/aXAtAzfYCn.jpg",
+  "https://imglink.cc/cdn/VRwoS0Y7jN.jpg",
+  "https://imglink.cc/cdn/T4nhHwQblo.jpg",
+  "https://imglink.cc/cdn/w6tFbAcqlp.jpg",
+  "https://imglink.cc/cdn/bPrXiSMiL5.jpg",
+  "https://imglink.cc/cdn/QunfoqHuwF.jpg",
+  "https://imglink.cc/cdn/mVAwA3HfWB.jpg",
+  "https://imglink.cc/cdn/riy4XIie-J.jpg",
+  "https://imglink.cc/cdn/FyWB9TolU7.jpg",
+  "https://imglink.cc/cdn/GEaZ23j6mn.jpg",
+  "https://imglink.cc/cdn/zQP1_-IBOo.jpg",
 ];
+
+const swipeConfidenceThreshold = 100;
 
 const ImageGallerySection: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -57,9 +56,18 @@ const ImageGallerySection: React.FC = () => {
 
   const prevImage = () => {
     if (selectedIndex === null) return;
-    setSelectedIndex(
-      (selectedIndex - 1 + images.length) % images.length
-    );
+    setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+  };
+
+  const handleDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: any
+  ) => {
+    if (info.offset.x < -swipeConfidenceThreshold) {
+      nextImage(); // Swipe left
+    } else if (info.offset.x > swipeConfidenceThreshold) {
+      prevImage(); // Swipe right
+    }
   };
 
   return (
@@ -81,27 +89,27 @@ const ImageGallerySection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
+        {/* Gallery */}
         <div className="grid grid-cols-1 gap-6">
-        {images.map((image, index) => (
+          {images.map((image, index) => (
             <motion.div
-            key={index}
-            whileHover={{ scale: 1.02 }}
-            className="cursor-pointer overflow-hidden rounded-2xl shadow-lg"
-            onClick={() => openImage(index)}
+              key={index}
+              whileHover={{ scale: 1.02 }}
+              className="cursor-pointer overflow-hidden rounded-2xl shadow-lg"
+              onClick={() => openImage(index)}
             >
-            <div className="w-full h-[280px] sm:h-[400px] md:h-[550px] lg:h-[700px] overflow-hidden">
+              <div className="w-full h-[280px] sm:h-[400px] md:h-[550px] lg:h-[700px] overflow-hidden">
                 <img
-                src={image}
-                alt={`Gallery ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  src={image}
+                  alt={`Gallery ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
-            </div>
+              </div>
             </motion.div>
-        ))}
+          ))}
         </div>
 
-        {/* Lightbox Modal */}
+        {/* Lightbox */}
         <AnimatePresence>
           {selectedIndex !== null && (
             <motion.div
@@ -126,7 +134,7 @@ const ImageGallerySection: React.FC = () => {
                 <ChevronLeft size={30} />
               </button>
 
-              {/* Main Image */}
+              {/* Swipeable Image */}
               <motion.img
                 key={selectedIndex}
                 src={images[selectedIndex]}
@@ -135,12 +143,19 @@ const ImageGallerySection: React.FC = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ duration: 0.3 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.8}
+                onDragEnd={handleDragEnd}
                 className="
                   max-h-[85vh]
                   max-w-[95vw]
                   object-contain
                   rounded-xl
                   shadow-2xl
+                  cursor-grab
+                  active:cursor-grabbing
+                  select-none
                 "
               />
 
