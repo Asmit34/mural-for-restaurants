@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Globe } from 'lucide-react';
+
 import Header from './components/Header';
 import Products from './components/Products';
 import About from './components/About';
 import Contact from './components/Contact';
 import MuralShowcase from './components/MuralShowcase';
 import ImageGallerySection from './components/ImageGallerySection';
+import HandPaintingGallery from './components/HandPaintingGallery';
+import ImageDetailView from './components/ImageDetailView';
 
 // Custom Pinterest SVG component
 const PinterestIcon = () => (
@@ -27,6 +29,8 @@ function App() {
   return (
     <Router>
       <Routes>
+
+        {/* HOME PAGE */}
         <Route
           path="/"
           element={
@@ -37,11 +41,12 @@ function App() {
               <MuralShowcase />
               <Products />
               <Contact />
-              
-              {/* Footer */}
+
+              {/* FOOTER */}
               <footer className="bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white py-12">
                 <div className="container mx-auto px-4">
                   <div className="flex flex-col md:flex-row justify-between items-center">
+
                     <div className="text-2xl font-bold mb-6 md:mb-0">
                       Best Art Technology
                     </div>
@@ -55,6 +60,7 @@ function App() {
                       >
                         <Facebook className="w-6 h-6" />
                       </a>
+
                       <a
                         href="https://www.pinterest.com/bestarttech"
                         target="_blank"
@@ -63,6 +69,7 @@ function App() {
                       >
                         <PinterestIcon />
                       </a>
+
                       <a
                         href="https://bat.com.np/all-murals/"
                         target="_blank"
@@ -73,6 +80,7 @@ function App() {
                       </a>
                     </div>
                   </div>
+
                   <div className="mt-8 text-center text-gray-300 text-sm">
                     © {new Date().getFullYear()} Best Art Technology. All rights reserved.
                   </div>
@@ -81,6 +89,19 @@ function App() {
             </div>
           }
         />
+
+        {/* HAND PAINTING PAGE */}
+        <Route
+          path="/hand-painting"
+          element={<HandPaintingGallery />}
+        />
+
+        {/* IMAGE DETAIL PAGE (NEW FIX) */}
+        <Route
+          path="/image/:id"
+          element={<ImageDetailView />}
+        />
+
       </Routes>
     </Router>
   );

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-const images = [
+export const images = [
   "https://imglink.cc/cdn/bID_RCbxjr.jpg",
   "https://imglink.cc/cdn/lwvLi4tSGH.jpg",
   "https://imglink.cc/cdn/m0DBTC20Zm.jpg",
@@ -38,6 +39,7 @@ const swipeConfidenceThreshold = 100;
 
 const ImageGallerySection: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const openImage = (index: number) => {
     setSelectedIndex(index);
@@ -56,40 +58,61 @@ const ImageGallerySection: React.FC = () => {
 
   const prevImage = () => {
     if (selectedIndex === null) return;
-    setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+    setSelectedIndex(
+      (selectedIndex - 1 + images.length) % images.length
+    );
   };
 
-  const handleDragEnd = (
-    _: MouseEvent | TouchEvent | PointerEvent,
-    info: any
-  ) => {
+  const handleDragEnd = (_: any, info: any) => {
     if (info.offset.x < -swipeConfidenceThreshold) {
-      nextImage(); // Swipe left
+      nextImage();
     } else if (info.offset.x > swipeConfidenceThreshold) {
-      prevImage(); // Swipe right
+      prevImage();
     }
   };
 
   return (
     <section className="w-full py-8 md:py-12 bg-white">
       <div className="container mx-auto px-4">
-        
-        {/* Title */}
+
+        {/* TITLE + BUTTON */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8"
+          className="flex flex-col md:flex-row items-center justify-between mb-8"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
-            New Collection
-          </h2>
-          <p className="text-gray-600 mt-3">
-            Explore our latest wall mural designs
-          </p>
+
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+              New Collection
+            </h2>
+            <p className="text-gray-600 mt-3">
+              Explore our latest wall mural designs
+            </p>
+          </div>
+
+          {/* ✅ FIXED BUTTON (INTERNAL NAVIGATION) */}
+          <button
+            onClick={() => navigate("/hand-painting")}
+            className="
+              mt-5 md:mt-0
+              px-6 py-3
+              bg-black
+              text-white
+              rounded-xl
+              font-medium
+              hover:bg-gray-800
+              transition
+              duration-300
+            "
+          >
+            Explore our hand painting
+          </button>
+
         </motion.div>
 
-        {/* Gallery */}
+        {/* IMAGE GRID */}
         <div className="grid grid-cols-1 gap-6">
           {images.map((image, index) => (
             <motion.div
@@ -109,7 +132,7 @@ const ImageGallerySection: React.FC = () => {
           ))}
         </div>
 
-        {/* Lightbox */}
+        {/* LIGHTBOX */}
         <AnimatePresence>
           {selectedIndex !== null && (
             <motion.div
@@ -118,7 +141,8 @@ const ImageGallerySection: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* Close Button */}
+
+              {/* CLOSE */}
               <button
                 onClick={closeImage}
                 className="absolute top-5 right-5 z-50 bg-white/20 p-2 rounded-full text-white hover:bg-white/30"
@@ -126,7 +150,7 @@ const ImageGallerySection: React.FC = () => {
                 <X size={28} />
               </button>
 
-              {/* Left Arrow */}
+              {/* LEFT */}
               <button
                 onClick={prevImage}
                 className="absolute left-3 md:left-8 z-50 bg-white/20 p-2 rounded-full text-white hover:bg-white/30"
@@ -134,7 +158,7 @@ const ImageGallerySection: React.FC = () => {
                 <ChevronLeft size={30} />
               </button>
 
-              {/* Swipeable Image */}
+              {/* IMAGE */}
               <motion.img
                 key={selectedIndex}
                 src={images[selectedIndex]}
@@ -147,28 +171,21 @@ const ImageGallerySection: React.FC = () => {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.8}
                 onDragEnd={handleDragEnd}
-                className="
-                  max-h-[85vh]
-                  max-w-[95vw]
-                  object-contain
-                  rounded-xl
-                  shadow-2xl
-                  cursor-grab
-                  active:cursor-grabbing
-                  select-none
-                "
+                className="max-h-[85vh] max-w-[95vw] object-contain rounded-xl shadow-2xl cursor-grab active:cursor-grabbing select-none"
               />
 
-              {/* Right Arrow */}
+              {/* RIGHT */}
               <button
                 onClick={nextImage}
                 className="absolute right-3 md:right-8 z-50 bg-white/20 p-2 rounded-full text-white hover:bg-white/30"
               >
                 <ChevronRight size={30} />
               </button>
+
             </motion.div>
           )}
         </AnimatePresence>
+
       </div>
     </section>
   );
