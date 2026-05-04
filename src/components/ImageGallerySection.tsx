@@ -92,7 +92,7 @@ const ImageGallerySection: React.FC = () => {
             </p>
           </div>
 
-          {/* ✅ FIXED BUTTON (INTERNAL NAVIGATION) */}
+          {/* ✅ FIXED BUTTON (INTERNAL NAVIGATION)
           <button
             onClick={() => navigate("/hand-painting")}
             className="
@@ -108,7 +108,7 @@ const ImageGallerySection: React.FC = () => {
             "
           >
             Explore our hand painting
-          </button>
+          </button> */}
 
         </motion.div>
 
