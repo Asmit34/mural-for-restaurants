@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import MuralShowcase from './components/MuralShowcase';
 import ImageGallerySection from './components/ImageGallerySection';
 import HandPaintingGallery from './components/HandPaintingGallery';
+
 import ImageDetailView from './components/ImageDetailView';
 
 // Custom Pinterest SVG component
@@ -37,6 +38,7 @@ function App() {
             <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-purple-50">
               <Header />
               <ImageGallerySection />
+              <HandPaintingGallery/>
               <About />
               <MuralShowcase />
               <Products />
