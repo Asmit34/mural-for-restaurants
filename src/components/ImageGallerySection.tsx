@@ -58,9 +58,7 @@ const ImageGallerySection: React.FC = () => {
 
   const prevImage = () => {
     if (selectedIndex === null) return;
-    setSelectedIndex(
-      (selectedIndex - 1 + images.length) % images.length
-    );
+    setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
   };
 
   const handleDragEnd = (_: any, info: any) => {
@@ -75,15 +73,14 @@ const ImageGallerySection: React.FC = () => {
     <section className="w-full py-8 md:py-12 bg-white">
       <div className="container mx-auto px-4">
 
-        {/* TITLE + BUTTON */}
+        {/* TITLE */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col md:flex-row items-center justify-between mb-8"
+          className="flex flex-col items-center justify-center mb-8 text-center"
         >
-
-          <div className="text-center md:text-left">
+          <div>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
               New Collection
             </h2>
@@ -91,25 +88,6 @@ const ImageGallerySection: React.FC = () => {
               Explore our latest wall mural designs
             </p>
           </div>
-
-          {/* ✅ FIXED BUTTON (INTERNAL NAVIGATION)
-          <button
-            onClick={() => navigate("/hand-painting")}
-            className="
-              mt-5 md:mt-0
-              px-6 py-3
-              bg-black
-              text-white
-              rounded-xl
-              font-medium
-              hover:bg-gray-800
-              transition
-              duration-300
-            "
-          >
-            Explore our hand painting
-          </button> */}
-
         </motion.div>
 
         {/* IMAGE GRID */}
@@ -117,15 +95,14 @@ const ImageGallerySection: React.FC = () => {
           {images.map((image, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.02 }}
               className="cursor-pointer overflow-hidden rounded-2xl shadow-lg"
               onClick={() => openImage(index)}
             >
-              <div className="w-full h-[280px] sm:h-[400px] md:h-[550px] lg:h-[700px] overflow-hidden">
+              <div className="w-full overflow-hidden rounded-2xl bg-white">
                 <img
                   src={image}
                   alt={`Gallery ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </motion.div>
@@ -141,7 +118,6 @@ const ImageGallerySection: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-
               {/* CLOSE */}
               <button
                 onClick={closeImage}
@@ -181,7 +157,6 @@ const ImageGallerySection: React.FC = () => {
               >
                 <ChevronRight size={30} />
               </button>
-
             </motion.div>
           )}
         </AnimatePresence>

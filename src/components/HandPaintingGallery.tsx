@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const images = [
   "https://imglink.cc/cdn/BzC5K-E_uW.jpg",
   "https://imglink.cc/cdn/4FcjG9M7pi.jpg",
-  "https://imglink.cc/cdn/yBpm9_XzVX.jpg",
+  // "https://imglink.cc/cdn/yBpm9_XzVX.jpg",
   "https://imglink.cc/cdn/CpVdsCmmjF.jpg",
   "https://imglink.cc/cdn/lvqJixRuJJ.jpg",
   "https://imglink.cc/cdn/9VViYwukh5.jpg",
@@ -19,14 +19,14 @@ export const images = [
   "https://imglink.cc/cdn/lWjjOFUPzw.jpg",
   "https://imglink.cc/cdn/TbpAsIN_xX.jpg",
   "https://imglink.cc/cdn/0Hwi_4vwZz.jpg",
-  "https://imglink.cc/cdn/F03AIsNxeg.jpg",
+  // "https://imglink.cc/cdn/F03AIsNxeg.jpg",
   "https://imglink.cc/cdn/ubtbOFYDLG.jpg",
   "https://imglink.cc/cdn/PIT4ioAkUY.jpg",
   "https://imglink.cc/cdn/UGregfyL9F.jpg",
   "https://imglink.cc/cdn/dMH86ySlRp.jpg",
-  "https://imglink.cc/cdn/p-UtNuW5qX.jpg",
-  "https://imglink.cc/cdn/gUX4geMFJA.jpg",
-  "https://imglink.cc/cdn/uWbTz9kk2-.jpg",
+  // "https://imglink.cc/cdn/p-UtNuW5qX.jpg",
+  // "https://imglink.cc/cdn/gUX4geMFJA.jpg",
+  // "https://imglink.cc/cdn/uWbTz9kk2-.jpg",
   "https://imglink.cc/cdn/t6GhRjrS17.jpg"
 ];
 
