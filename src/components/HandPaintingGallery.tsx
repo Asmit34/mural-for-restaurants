@@ -27,7 +27,28 @@ export const images = [
   // "https://imglink.cc/cdn/p-UtNuW5qX.jpg",
   // "https://imglink.cc/cdn/gUX4geMFJA.jpg",
   // "https://imglink.cc/cdn/uWbTz9kk2-.jpg",
-  "https://imglink.cc/cdn/t6GhRjrS17.jpg"
+  "https://imglink.cc/cdn/t6GhRjrS17.jpg",
+  "https://imglink.cc/cdn/jFsVkdGcRL.jpeg",
+  "https://imglink.cc/cdn/7cBHwAzCMy.jpeg",
+  "https://imglink.cc/cdn/8-jxXSYUEA.mp4",
+  "https://imglink.cc/cdn/1-JGYqb8uv.jpeg",
+  "https://imglink.cc/cdn/fAjaz9JP1G.jpeg",
+  "https://imglink.cc/cdn/N8NEpTxj4z.jpeg",
+  "https://imglink.cc/cdn/XWSboQJkAc.jpeg",
+  "https://imglink.cc/cdn/7-4ZZVGjYP.jpeg",
+  "https://imglink.cc/cdn/xhspj0gsL-.jpeg",
+  "https://imglink.cc/cdn/u33tla5pPA.jpeg",
+  "https://imglink.cc/cdn/KKbd9kF9TS.jpeg",
+  "https://imglink.cc/cdn/NGgPsV3mng.jpeg",
+  "https://imglink.cc/cdn/UNxXDrN19m.jpeg",
+  "https://imglink.cc/cdn/h_j7gy62-Y.jpeg",
+  "https://imglink.cc/cdn/TwrAUb_uJ-.jpeg",
+  "https://imglink.cc/cdn/BoFsNh-Jsa.jpeg",
+  "https://imglink.cc/cdn/yeCnt-mwRl.jpeg",
+  "https://imglink.cc/cdn/wlmYnMl5zC.jpeg",
+  "https://imglink.cc/cdn/xcvuMt8JLu.jpeg",
+  "https://imglink.cc/cdn/yC8CG3nhIq.jpeg",
+  "https://imglink.cc/cdn/RLKsP2NqxV.jpeg"
 ];
 
 const swipeConfidenceThreshold = 100;
