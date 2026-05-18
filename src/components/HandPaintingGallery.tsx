@@ -30,7 +30,7 @@ export const images = [
   "https://imglink.cc/cdn/t6GhRjrS17.jpg",
   "https://imglink.cc/cdn/jFsVkdGcRL.jpeg",
   "https://imglink.cc/cdn/7cBHwAzCMy.jpeg",
-  "https://imglink.cc/cdn/8-jxXSYUEA.mp4",
+  // "https://imglink.cc/cdn/8-jxXSYUEA.mp4",
   "https://imglink.cc/cdn/1-JGYqb8uv.jpeg",
   "https://imglink.cc/cdn/fAjaz9JP1G.jpeg",
   "https://imglink.cc/cdn/N8NEpTxj4z.jpeg",
