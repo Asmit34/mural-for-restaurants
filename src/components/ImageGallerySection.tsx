@@ -80,14 +80,32 @@ const ImageGallerySection: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center justify-center mb-8 text-center"
         >
-          <div>
+          <div className="w-full flex flex-col items-center justify-center text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
               New Collection
             </h2>
+
             <p className="text-gray-600 mt-3">
               Explore our latest wall mural designs
             </p>
-          </div>
+
+            <button
+              onClick={() => navigate("/hand-painting")}
+              className="
+                mt-6
+                px-6 py-3
+                bg-black
+                text-white
+                rounded-xl
+                font-medium
+                hover:bg-gray-800
+                transition
+                duration-300
+              "
+            >
+              Hand Painting Collection
+            </button>
+</div>
         </motion.div>
 
         {/* IMAGE GRID */}
