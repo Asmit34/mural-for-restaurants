@@ -8,7 +8,6 @@ export const images = [
   "https://imglink.cc/cdn/4FcjG9M7pi.jpg",
   // "https://imglink.cc/cdn/yBpm9_XzVX.jpg",
   "https://imglink.cc/cdn/CpVdsCmmjF.jpg",
-  "https://imglink.cc/cdn/SazbidYn37.png",
   "https://imglink.cc/cdn/lvqJixRuJJ.jpg",
   "https://imglink.cc/cdn/9VViYwukh5.jpg",
   "https://imglink.cc/cdn/-n18TXEVak.jpg",
