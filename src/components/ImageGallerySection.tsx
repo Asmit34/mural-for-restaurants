@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const images = [
   "https://imglink.cc/cdn/bID_RCbxjr.jpg",
   "https://imglink.cc/cdn/lwvLi4tSGH.jpg",
+  "https://imglink.cc/cdn/SazbidYn37.png",
   "https://imglink.cc/cdn/m0DBTC20Zm.jpg",
   "https://imglink.cc/cdn/pEEyAwwpyn.jpg",
   "https://imglink.cc/cdn/cd5CBzM8UV.jpg",
